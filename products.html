@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products | LaserTen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="product-page">
+
+    <nav class="navbar">
+        <div class="logo">Laserten</div>
+        <ul class="uppertab">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li class="nav-dropdown">
+                <a href="products.html" class="dropbtn">Products ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="products.html#mouthwash">LaserTen Mouthwash</a></li>
+                    <li><a href="products.html#oil">LaserTen Oil</a></li>
+                    <li><a href="products.html#afterdrink">After Drink</a></li>
+                </ul>
+            </li>
+            <li><a href="oral.html">Oral Care</a></li>
+            <li><a href="#distributer">Distributors</a></li>
+            <li><a href="#Contacts">Contact</a></li>
+        </ul>
+        <button class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <header class="product-hero hero">
+        <div class="hero-bg atmospheric"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-container">
+            <div class="hero-content reveal">
+                <p class="hero-subtitle shimmer-text">Our Collection</p>
+                <h1><span class="line-1 gold-text">Premium Hygiene</span><br><span class="line-2">& Wellness.</span>
+                </h1>
+            </div>
+            <div class="hero-image-container">
+                <img src="photos/luxury_mouthwash.png" alt="LaserTen Luxury Bottle" class="hero-image">
+            </div>
+        </div>
+    </header>
+
+    <section class="filter-section">
+        <div class="container flex-filter">
+            <button class="filter-btn active" onclick="filterCategory('all')">All Products</button>
+            <button class="filter-btn" onclick="filterCategory('mouthwash')">LaserTen Mouthwash</button>
+            <button class="filter-btn" onclick="filterCategory('oil')">LaserTen Oil</button>
+            <button class="filter-btn" onclick="filterCategory('afterdrink')">After Drink</button>
+        </div>
+    </section>
+
+    <section class="product-grid-section reveal">
+        <div class="container product-flex-grid reveal stagger-reveal" id="product-list">
+
+            <div class="product-card mouthwash gold-border">
+                <div class="product-images">
+                    <img src="photos/purplepo.png" class="main-img" id="img1">
+                    <h6 class="gold-text">LaserTen Cardamom Liquid Toothpaste And MouthWash</h6>
+                    <p class="price">₹149</p>
+                    <p class="details">Instant cooling freshness with 99.9% germ protection.</p>
+                    <a href="#" class="buy-btn btn">Buy Now</a>
+                </div>
+            </div>
+
+            <div class="product-card mouthwash gold-border">
+                <div class="product-images">
+                    <img src="photos/bluepo.png" class="main-img" id="img1">
+                    <h6 class="gold-text">LaserTen Clove Flavour Liquid Toothpaste And MouthWah</h6>
+                    <p class="price">₹149</p>
+                    <p class="details">Instant cooling freshness with 99.9% germ protection.</p>
+                    <a href="#" class="buy-btn btn">Buy Now</a>
+                </div>
+            </div>
+
+            <div class="product-card mouthwash gold-border">
+                <div class="product-images">
+                    <img src="photos/green.png" class="main-img" id="img1">
+                    <h6 class="gold-text">LaserTen Mint Flavour Liquid Toothpaste And MouthWah</h6>
+                    <p class="price">₹149</p>
+                    <p class="details">Instant cooling freshness with 99.9% germ protection.</p>
+                    <a href="#" class="buy-btn btn">Buy Now</a>
+                </div>
+            </div>
+
+            <div class="product-card mouthwash gold-border">
+                <div class="product-images">
+                    <img src="photos/purplebo.png" class="main-img" id="img1">
+                    <h6 class="gold-text">LaserTen Cardamom Flavour Liquid Toothpaste And MouthWash Bottle</h6>
+                    <p class="price">₹149</p>
+                    <p class="details">Instant cooling freshness with 99.9% germ protection.</p>
+                    <a href="#" class="buy-btn btn">Buy Now</a>
+                </div>
+            </div>
+
+            <div class="product-card mouthwash gold-border">
+                <div class="product-images">
+                    <img src="photos/bluebo.png" class="main-img" id="img1">
+                    <h6 class="gold-text">LaserTen Clove Flavour Liquid Toothpaste And MouthWash Bottle</h6>
+                    <p class="price">₹149</p>
+                    <p class="details">Instant cooling freshness with 99.9% germ protection.</p>
+                    <a href="#" class="buy-btn btn">Buy Now</a>
+                </div>
+            </div>
+
+
+            <div class="product-card mouthwash gold-border">
+                <div class="product-images">
+                    <img src="photos/greenbo.png" class="main-img" id="img1">
+                    <h6 class="gold-text">LaserTen Mint Flavour Liquid Toothpaste And MouthWash Bottle</h6>
+                    <p class="price">₹149</p>
+                    <p class="details">Instant cooling freshness with 99.9% germ protection.</p>
+                    <a href="#" class="buy-btn btn">Buy Now</a>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="product-card oil gold-border">
+                <div class="product-images">
+                    <img src="photos/LO1.png" class="main-img" id="img4">
+                    <h6 class="gold-text">Laser 10 Multi Purpose Massage Oil</h6>
+                    <p class="price">₹450</p>
+                    <p class="details"> Laser10 essential benefits for deep relief and healing.</p>
+                    <a href="#" class="buy-btn btn">Buy Now</a>
+                </div>
+            </div>
+
+            <div class="product-card oil gold-border">
+                <div class="product-images">
+                    <img src="photos/LOB.png" class="main-img" id="img4">
+                    <h6 class="gold-text">Laser 10 Multi Purpose Massage Oil</h6>
+                    <p class="price">₹450</p>
+                    <p class="details"> Laser10 essential benefits for deep relief and healing.</p>
+                    <a href="#" class="buy-btn btn">Buy Now</a>
+                </div>
+            </div>
+
+            <div class="product-card afterdrink gold-border">
+                <div class="product-images">
+                    <img src="photos/adepm.png" class="main-img" id="img5">
+                    <h4 class="gold-text">After Drink Elaichi Flavour</h4>
+                    <p class="price">₹200</p>
+                    <p class="details">Specialized formula to eliminate strong mouth odours.</p>
+                    <a href="#" class="buy-btn btn">Buy Now</a>
+                </div>
+            </div>
+
+            <div class="product-card afterdrink gold-border">
+                <div class="product-images">
+                    <img src="photos/ADMBP1.png" class="main-img" id="img5">
+                    <h4 class="gold-text">After Drink Mint Flavour</h4>
+                    <p class="price">₹200</p>
+                    <p class="details">Specialized formula to eliminate strong mouth odours.</p>
+                    <a href="#" class="buy-btn btn">Buy Now</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand footer-column">
+                <h2 class="logo">Laserten</h2>
+                <p class="mkr-sub-brand">MKR FOOD PRODUCTS</p>
+                <p class="brand-description">Precision Science. Natural Elegance. The future of oral hygiene crafted for
+                    those who choose smarter, modern care.</p>
+            </div>
+
+            <div class="footer-info footer-column">
+                <h4>Our Headquarters</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <span class="icon">📍</span>
+                        <div class="text">
+                            KHASRA No. 655, Opp Murgi Form,<br>
+                            Agra-Delhi Highway NH-2, <br>
+                            ARTHONI, AGRA U.P. 282002
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-contact footer-column">
+                <h4>Support</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <span class="icon">📞</span>
+                        <div class="text">
+                            <strong>Help Lines:</strong><br>
+                            +91 92197 91970<br>
+                            +91 88817 49444
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">📧</span>
+                        <div class="text"><a href="mailto:care@laserten.com">care@laserten.com</a></div>
+                    </li>
+                    <li>
+                        <span class="icon">🌐</span>
+                        <div class="text"><a href="http://www.laserten.com" target="_blank">www.laserten.com</a></div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-links footer-column">
+                <h4>Navigation</h4>
+                <ul class="footer-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="products.html">Our Products</a></li>
+                    <li><a href="oral.html">Shop Oral Care</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container bottom-flex">
+                <p>&copy; 2025 LaserTen | A Unit of MKR FOOD PRODUCTS. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function filterCategory(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const btns = document.querySelectorAll('.filter-btn');
+            btns.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function changeImg(imgTag, mainId) {
+            document.getElementById(mainId).src = imgTag.src;
+        }
+    </script>
+    <div class="mobile-menu-overlay">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="oral.html">Oral Care</a></li>
+            <li><a href="#distributer">Distributors</a></li>
+            <li><a href="#Contacts">Contact</a></li>
+        </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
