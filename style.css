@@ -653,9 +653,9 @@ h3,
 
 /* Atmospheric CSS Variant (No Image) */
 .hero-bg.atmospheric {
-    background: radial-gradient(circle at 70% 30%, rgba(255, 209, 220, 0.4) 0%, transparent 60%),
-        radial-gradient(circle at 20% 70%, rgba(255, 228, 225, 0.3) 0%, transparent 60%),
-        radial-gradient(circle at 50% 50%, var(--white) 0%, var(--bg-light) 100%);
+    background: radial-gradient(circle at 30% 20%, rgba(26, 11, 46, 0.8) 0%, transparent 70%),
+        radial-gradient(circle at 80% 80%, rgba(93, 31, 110, 0.4) 0%, transparent 70%),
+        radial-gradient(circle at 50% 50%, #1A0B2E 0%, #0D051A 100%);
     animation: atmosphericPulse 15s infinite alternate ease-in-out;
 }
 
@@ -1577,45 +1577,122 @@ h3,
     opacity: 0.8;
 }
 
+/* --- Intense Atmospheric Hero for About --- */
+.about-hero {
+    height: 100vh !important;
+    padding: 0 12% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-hero .hero-container {
+    justify-content: center !important;
+    text-align: center;
+    width: 100%;
+}
+
 .about-hero h1 {
-    font-size: 42px;
-    margin-top: 10px;
+    font-size: 4.5rem !important;
+    /* Larger for 100vh impact */
+    margin-top: 5px;
+    z-index: 2;
 }
 
 /* --- Center-Aligned Narrative & Stats --- */
-.narrative-container {
-    max-width: 900px;
+/* --- Split Narrative Layout --- */
+/* --- Compact Narrative Layout --- */
+.split-narrative {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: flex-start;
+    max-width: 1000px;
     margin: 0 auto;
-    text-align: center;
-    padding: 100px 2rem;
+    padding: 60px 2rem;
+}
+
+.narrative-visual {
+    display: none;
+    /* Removing large narrative image */
+}
+
+.narrative-glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 2.5rem;
+    height: 100%;
+}
+
+.narrative-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-slow);
+}
+
+.split-narrative:hover .narrative-visual img {
+    transform: scale(1.05);
+}
+
+.narrative-stats-column {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 3rem;
+}
+
+.stat-vibe.left-aligned {
+    text-align: left;
+}
+
+@media (max-width: 992px) {
+    .split-narrative {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        text-align: center;
+    }
+
+    .stat-vibe.left-aligned {
+        text-align: center;
+    }
+
+    .narrative-stats-column {
+        flex-direction: row;
+        justify-content: center;
+        padding: 0;
+    }
 }
 
 .narrative-block {
-    margin-bottom: 6rem;
+    margin-bottom: 3rem;
 }
 
 .narrative-block h2 {
-    font-size: 3rem;
-    margin-bottom: 2rem;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
     color: var(--primary);
 }
 
 .narrative-block p {
-    font-size: 1.2rem;
-    line-height: 2;
+    font-size: 1.05rem;
+    line-height: 1.7;
     color: var(--text-muted);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .brand-quote {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-family: 'Playfair Display', serif;
     font-style: italic;
     color: var(--gold);
-    margin: 4rem 0;
+    margin: 3rem 0;
     line-height: 1.2;
     position: relative;
     display: inline-block;
+    white-space: nowrap;
 }
 
 .brand-quote::before,
@@ -2767,14 +2844,14 @@ h3,
 
 .milestone-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3rem;
-    margin-top: 5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
 }
 
 .milestone-item {
-    height: 650px;
-    /* Taller for better visual impact */
+    height: 400px;
+    /* Much more compact */
     perspective: 2000px;
     cursor: pointer;
 }
@@ -3141,13 +3218,33 @@ textarea.form-control {
         font-size: 2.5rem;
     }
 }
+
 /* --- Utility Classes --- */
-.text-center { text-align: center !important; }
-.centered { margin-left: auto !important; margin-right: auto !important; }
-.max-600 { max-width: 600px; }
-.max-800 { max-width: 800px; }
-.py-100 { padding-top: 100px !important; padding-bottom: 100px !important; }
-.gold-border { border: 1px solid var(--gold-border) !important; }
+.text-center {
+    text-align: center !important;
+}
+
+.centered {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.max-600 {
+    max-width: 600px;
+}
+
+.max-800 {
+    max-width: 800px;
+}
+
+.py-100 {
+    padding-top: 100px !important;
+    padding-bottom: 100px !important;
+}
+
+.gold-border {
+    border: 1px solid var(--gold-border) !important;
+}
 
 /* --- About Narrative Enhancements --- */
 .about-narrative {
@@ -3157,4 +3254,238 @@ textarea.form-control {
 
 .max-600.centered {
     display: block;
+}
+
+/* --- Elite Parallax & Floating Elements --- */
+.parallax-container {
+    overflow: hidden;
+    position: relative;
+    background: var(--white);
+}
+
+.floating-botanical {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 30% 30%, rgba(197, 160, 89, 0.2), transparent);
+    border-radius: 50%;
+    filter: blur(15px);
+    z-index: 0;
+    pointer-events: none;
+    animation: floatingDrift 20s infinite alternate ease-in-out;
+}
+
+@keyframes floatingDrift {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(100px, 150px) scale(1.5);
+    }
+}
+
+.botanical-1 {
+    top: 10%;
+    left: 5%;
+    animation-duration: 25s;
+}
+
+.botanical-2 {
+    top: 40%;
+    right: 10%;
+    animation-duration: 30s;
+    animation-delay: -5s;
+}
+
+.botanical-3 {
+    bottom: 20%;
+    left: 15%;
+    animation-duration: 22s;
+}
+
+/* --- Brand DNA Interactive Section --- */
+.brand-dna-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    margin-top: 5rem;
+}
+
+.dna-item {
+    padding: 3rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 40px;
+    transition: var(--transition-mid);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.dna-item:hover {
+    transform: translateY(-15px) scale(1.02);
+    background: var(--white);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.05);
+    border-color: var(--gold);
+}
+
+.dna-icon {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    display: inline-block;
+    transition: var(--transition);
+}
+
+.dna-item:hover .dna-icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.dna-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+}
+
+.dna-item p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+}
+
+/* --- Section Dividers --- */
+.slope-divider {
+    position: relative;
+    height: 150px;
+    background: var(--bg-light);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
+    z-index: 5;
+}
+
+/* --- Interactive Brand Modal --- */
+.brand-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-mid);
+}
+
+.brand-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 11, 46, 0.9);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.modal-content {
+    position: relative;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    max-width: 600px;
+    width: 90%;
+    padding: 3rem;
+    border-radius: 32px;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    transform: scale(0.8) translateY(20px);
+    transition: var(--transition-mid);
+    text-align: center;
+}
+
+.brand-modal.active .modal-content {
+    transform: scale(1) translateY(0);
+}
+
+.modal-body h2 {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+}
+
+.modal-body p {
+    font-size: 1.1rem;
+    color: var(--white);
+    line-height: 1.8;
+}
+
+.close-modal-btn {
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
+    background: var(--gold-gradient);
+    border: none;
+    border-radius: 50px;
+    color: var(--primary);
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close-modal-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--gold-glow);
+}
+
+/* --- Confetti Burst Effect --- */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10001;
+    overflow: hidden;
+}
+
+.confetti-particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--gold);
+    border-radius: 2px;
+    opacity: 0.8;
+}
+
+@keyframes confettiBurstLeft {
+    0% {
+        transform: translate(-50px, 100vh) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(50vw, -100px) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+@keyframes confettiBurstRight {
+    0% {
+        transform: translate(calc(100vw + 50px), 100vh) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(50vw, -100px) rotate(-720deg);
+        opacity: 0;
+    }
+}
+
+.slope-divider-reverse {
+    clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
 }

@@ -13,6 +13,34 @@
 
 <body>
 
+    <div class="aura-container">
+        <div class="aura-blob aura-blob-1"></div>
+        <div class="aura-blob aura-blob-2"></div>
+        <div class="aura-blob aura-blob-3"></div>
+        <div class="glass-particle" style="width: 50px; height: 50px; left: 10%; animation-delay: 1s;"></div>
+        <div class="glass-particle" style="width: 80px; height: 80px; left: 80%; animation-delay: 5s;"></div>
+        <div class="glass-particle" style="width: 30px; height: 30px; left: 40%; animation-delay: 10s;"></div>
+
+        <div class="water-bubbles-container">
+            <div class="water-bubble bubble-burst"
+                style="width: 40px; height: 40px; left: 10%; animation-delay: 2s; animation-duration: 9s;"></div>
+            <div class="water-bubble"
+                style="width: 60px; height: 60px; left: 25%; animation-delay: 0s; animation-duration: 18s;"></div>
+            <div class="water-bubble bubble-burst"
+                style="width: 30px; height: 30px; left: 45%; animation-delay: 5s; animation-duration: 11s;"></div>
+            <div class="water-bubble"
+                style="width: 50px; height: 50px; left: 65%; animation-delay: 1s; animation-duration: 20s;"></div>
+            <div class="water-bubble bubble-burst"
+                style="width: 35px; height: 35px; left: 85%; animation-delay: 8s; animation-duration: 12s;"></div>
+            <div class="water-bubble"
+                style="width: 45px; height: 45px; left: 15%; animation-delay: 12s; animation-duration: 16s;"></div>
+            <div class="water-bubble"
+                style="width: 25px; height: 25px; left: 75%; animation-delay: 4s; animation-duration: 10s;"></div>
+            <div class="water-bubble"
+                style="width: 55px; height: 55px; left: 55%; animation-delay: 15s; animation-duration: 22s;"></div>
+        </div>
+    </div>
+
     <nav class="navbar">
         <div class="logo">Laserten</div>
         <ul class="uppertab">
@@ -44,43 +72,87 @@
         <div class="hero-container">
             <div class="hero-content reveal">
                 <p class="hero-subtitle shimmer-text">Established 1999</p>
-                <h1><span class="line-1 gold-text">Our Journey of</span><br><span class="line-2">Innovation.</span></h1>
-            </div>
-            <div class="hero-image-container">
-                <img src="photos/luxury_mouthwash.png" alt="LaserTen Luxury Bottle" class="hero-image">
+                <h1><span class="line-1 gold-text">Our Journey of Innovation.</span></h1>
             </div>
         </div>
     </header>
 
-    <section class="about-narrative reveal">
-        <div class="narrative-container">
+    <section class="about-narrative reveal parallax-container">
+        <!-- Floating Visual Elements -->
+        <div class="floating-botanical botanical-1"></div>
+        <div class="floating-botanical botanical-2"></div>
+        <div class="floating-botanical botanical-3"></div>
+        <div class="glass-particle" style="width: 100px; height: 100px; top: 10%; right: 5%; opacity: 0.1;"></div>
+        <div class="glass-particle" style="width: 150px; height: 150px; bottom: 15%; left: 5%; opacity: 0.1;"></div>
+
+        <div class="split-narrative">
             <div class="narrative-block">
                 <p class="hero-subtitle gold-text">Our Philosophy</p>
-                <h2 class="gold-text">Tradition Reimagined.</h2>
+                <h2 class="gold-text">Scientific Precision meets<br>Botanical Wisdom.</h2>
                 <p>MKR Food Products was founded in 1999 with a commitment to analytical precision and natural purity.
                     Over the last quarter-century, we have observed the evolving landscape of personal care, noting that
-                    true hygiene often gets lost in the noise of chemical-laden alternatives.</p>
-                <p>We analyze every ingredient—from the purifying long (clove) extracts to the refreshing menthol—to
-                    ensure that every product we craft provides a therapeutic experience that respects the natural
-                    balance of the body.</p>
+                    true hygiene often gets lost in the noise of synthetic alternatives. Our mission has always been to
+                    bridge this gap, leveraging the power of nature through the lens of modern science.</p>
+                <p>We perform rigorous molecular-level analysis on every ingredient—from the purifying long (clove)
+                    extracts to our signature herbal infusion—to ensure that every product delivers a therapeutic
+                    experience
+                    that honors the body’s innate biological balance.</p>
 
                 <div class="brand-quote reveal">
                     Precision Science. Natural Elegance.
                 </div>
             </div>
 
-            <div class="premium-stats reveal stagger-reveal">
-                <div class="stat-vibe">
-                    <span class="number" id="experience-counter">25+</span>
-                    <span class="label">Years of Mastery</span>
-                </div>
-                <div class="stat-vibe">
-                    <span class="number">1999</span>
-                    <span class="label">Established Heritage</span>
+            <div class="narrative-visual-container reveal stagger-reveal">
+                <div class="narrative-glass-card">
+                    <div class="narrative-stats-column">
+                        <div class="stat-vibe left-aligned">
+                            <span class="number" id="experience-counter">25+</span>
+                            <span class="label">Years of Mastery</span>
+                        </div>
+                        <div class="stat-vibe left-aligned">
+                            <span class="number">1999</span>
+                            <span class="label">Established Heritage</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Interactive Brand DNA Section -->
+    <section class="brand-dna reveal py-100">
+        <div class="container">
+            <div class="narrative-block text-center">
+                <p class="hero-subtitle gold-text">The MKR Standard</p>
+                <h2 class="gold-text">Our Brand DNA</h2>
+                <p class="max-600 centered">Three core pillars that drive every innovation at LaserTen.</p>
+            </div>
+
+            <div class="brand-dna-grid reveal stagger-reveal">
+                <div class="dna-item">
+                    <span class="dna-icon">🔬</span>
+                    <h3>Analytical Purity</h3>
+                    <p>Every extract is tested in our high-precision labs to ensure zero contamination and maximum
+                        potency. We don't just formulate; we analyze.</p>
+                </div>
+                <div class="dna-item">
+                    <span class="dna-icon">🍃</span>
+                    <h3>Botanical Integrity</h3>
+                    <p>We source only the finest natural essences from ethical producers. Our process preserves the
+                        medicinal soul of the plants we use.</p>
+                </div>
+                <div class="dna-item">
+                    <span class="dna-icon">💎</span>
+                    <h3>Modern Luxury</h3>
+                    <p>We believe hygiene should be an elite experience. From our pocket-size sachets to our premium
+                        bottles, design is as important as formula.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="slope-divider"></div>
 
     <section class="legacy-journey reveal">
         <div class="container">
@@ -98,9 +170,8 @@
                         <div class="milestone-card-front gold-border">
                             <span class="milestone-marker">🚀 1999</span>
                             <h3>The Pioneer Launch</h3>
-                            <p>Our journey began with <strong>After Drink Cleansing Savionette Mouthwash</strong>. We
-                                analyzed the market's need for a portable, elite solution to oral odors, creating a
-                                product that defined a new category in India.</p>
+                            <p>Our journey began with <strong>After Drink Savionette Mouthwash</strong>, defining a new
+                                category in portable oral care.</p>
                             <span class="hover-hint">Hover to see product 👁️</span>
                         </div>
                         <div class="milestone-card-back card-1"></div>
@@ -112,10 +183,10 @@
                     <div class="milestone-card-inner">
                         <div class="milestone-card-front gold-border">
                             <span class="milestone-marker">📈 GROWTH</span>
-                            <h3>The Science of Expansion</h3>
-                            <p>By integrating botanical research with modern manufacturing, we expanded into
-                                <strong>Relieve-Me</strong> and <strong>Funball</strong>, always maintaining the
-                                analytical rigor that MKR is known for.</p>
+                            <h3>Expansion</h3>
+                            <p>By integrating botanical research, we expanded into <strong>Relieve-Me</strong> and
+                                <strong>Funball</strong>.
+                            </p>
                             <span class="hover-hint">Hover to see product 👁️</span>
                         </div>
                         <div class="milestone-card-back card-2"></div>
@@ -128,9 +199,8 @@
                         <div class="milestone-card-front gold-border">
                             <span class="milestone-marker">✨ TODAY</span>
                             <h3>Modern Mastery</h3>
-                            <p>Today, <strong>Laserten</strong> represents the pinnacle of our journey—a ready-to-use
-                                liquid toothpaste that eliminates 99.9% of germs while preserving natural enamel through
-                                pH-balanced science.</p>
+                            <p>Today, <strong>Laserten</strong> represents the pinnacle of our journey—99.9% germ
+                                elimination with pH-balanced science.</p>
                             <span class="hover-hint">Hover to see product 👁️</span>
                         </div>
                         <div class="milestone-card-back card-3"></div>
@@ -234,6 +304,25 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </div>
+    <!-- Celebratory Brand Modal -->
+    <div id="brandModal" class="brand-modal">
+        <div class="modal-overlay" onclick="closeAboutModal()"></div>
+        <div class="modal-content">
+            <div class="modal-body">
+                <h2 class="gold-text">A Quarter Century of Innovation</h2>
+                <p>Since 1999, LaserTen has been at the forefront of oral hygiene, bridging the gap between molecular
+                    precision and botanical wisdom. Our journey is a testament to the power of science in service of
+                    natural beauty.</p>
+                <p>MKR Food Products celebrates 25+ years of delivering uncompromising quality and refreshing confidence
+                    to millions. Thank you for being part of our legacy.</p>
+                <button class="close-modal-btn" onclick="closeAboutModal()">Continue Journey</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confetti Container -->
+    <div id="confettiContainer" class="confetti-container"></div>
+
     <script src="script.js"></script>
 </body>
 

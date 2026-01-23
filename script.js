@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Counter Animation for About Page ---
-    const counters = document.querySelectorAll('.stat-number');
+    const counters = document.querySelectorAll('.stat-number, .stat-vibe .number');
     const runCounter = (el) => {
         const text = el.innerText;
         const target = parseInt(text.replace(/[^0-9]/g, ''));
@@ -145,6 +145,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.5 });
 
     counters.forEach(counter => counterObserver.observe(counter));
+
+    // --- Elite Mouse Parallax for About Hero ---
+    const aboutHero = document.querySelector('.about-hero');
+    if (aboutHero) {
+        const heroImg = aboutHero.querySelector('.hero-image');
+        aboutHero.addEventListener('mousemove', (e) => {
+            const xPos = (e.clientX / window.innerWidth - 0.5) * 40;
+            const yPos = (e.clientY / window.innerHeight - 0.5) * 40;
+            if (heroImg) {
+                heroImg.style.transform = `translate(${xPos}px, ${yPos}px) scale(1.05)`;
+            }
+        });
+
+        aboutHero.addEventListener('mouseleave', () => {
+            if (heroImg) {
+                heroImg.style.transform = 'translate(0, 0) scale(1)';
+            }
+        });
+    }
 
     // --- 3D Infinite Carousel Logic (Enhanced with Stochastic Filtering) ---
     const carousels = document.querySelectorAll('.carousel-3d-section');
@@ -340,4 +359,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.1 });
 
     footerColumns.forEach(column => footerObserver.observe(column));
+
+    // --- Celebratory About Popup Logic ---
+    window.createConfetti = () => {
+        const container = document.getElementById('confettiContainer');
+        if (!container) return;
+
+        const colors = ['#C5A059', '#FFE4E1', '#FFF5F7', '#FFD1DC'];
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti-particle');
+
+            // Random properties
+            const isLeft = Math.random() > 0.5;
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.left = isLeft ? '-50px' : 'calc(100vw + 50px)';
+            confetti.style.top = (Math.random() * 100) + 'vh';
+
+            // Animation
+            const duration = 2 + Math.random() * 3;
+            const delay = Math.random() * 0.5;
+            confetti.style.animation = `${isLeft ? 'confettiBurstLeft' : 'confettiBurstRight'} ${duration}s ${delay}s ease-out forwards`;
+
+            container.appendChild(confetti);
+
+            // Cleanup
+            setTimeout(() => confetti.remove(), (duration + delay) * 1000);
+        }
+    };
+
+    window.triggerAboutCelebration = (e) => {
+        if (e) e.preventDefault();
+        createConfetti();
+        setTimeout(() => {
+            const modal = document.getElementById('brandModal');
+            if (modal) modal.classList.add('active');
+        }, 500);
+    };
+
+    window.closeAboutModal = () => {
+        const modal = document.getElementById('brandModal');
+        if (modal) modal.classList.remove('active');
+    };
+
+    // Attach to About links
+    document.querySelectorAll('a[href="about.html"], .split-narrative').forEach(el => {
+        el.addEventListener('click', (e) => {
+            // Only trigger if we are on the about page or the element is the narrative section
+            if (window.location.pathname.includes('about.html') || el.classList.contains('split-narrative')) {
+                triggerAboutCelebration(e);
+            }
+        });
+    });
 });
