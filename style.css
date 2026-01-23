@@ -14,14 +14,14 @@
     --bg-light: #FFF0F5;
 
     --bg-dark: #FFE4E1;
-   
+
     --text-main: #2D1B22;
     --text-muted: #7D6B72;
 
     /* --- Atmospheric Tokens --- */
     --glass-bg: rgba(255, 245, 247, 0.4);
     --glass-border: rgba(255, 209, 220, 0.3);
-    --gold-gradient: linear-gradient(135deg, #C5A059 0%, #F4DCA1 50%, #C5A059 100%);
+    --gold-gradient: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #B8860B 100%);
     --gold-glow: 0 0 20px rgba(197, 160, 89, 0.3);
 
     /* --- Editorial Spacing --- */
