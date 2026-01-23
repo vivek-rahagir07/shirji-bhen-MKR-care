@@ -365,27 +365,46 @@ document.addEventListener('DOMContentLoaded', () => {
         const container = document.getElementById('confettiContainer');
         if (!container) return;
 
-        const colors = ['#C5A059', '#FFE4E1', '#FFF5F7', '#FFD1DC'];
-        for (let i = 0; i < 100; i++) {
-            const confetti = document.createElement('div');
-            confetti.classList.add('confetti-particle');
+        const colors = ['#C5A059', '#FFE4E1', '#FFF5F7', '#FFD1DC', '#D4AF37', '#F4DCA1', '#E6E6FA'];
+        const particlesPerSide = 125;
 
-            // Random properties
-            const isLeft = Math.random() > 0.5;
-            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            confetti.style.left = isLeft ? '-50px' : 'calc(100vw + 50px)';
-            confetti.style.top = (Math.random() * 100) + 'vh';
+        const spawnParticles = (isLeft) => {
+            for (let i = 0; i < particlesPerSide; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti-particle');
 
-            // Animation
-            const duration = 2 + Math.random() * 3;
-            const delay = Math.random() * 0.5;
-            confetti.style.animation = `${isLeft ? 'confettiBurstLeft' : 'confettiBurstRight'} ${duration}s ${delay}s ease-out forwards`;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const size = Math.random() * 6 + 4;
+                const isCircle = Math.random() > 0.5;
 
-            container.appendChild(confetti);
+                confetti.style.backgroundColor = color;
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                if (isCircle) confetti.style.borderRadius = '50%';
 
-            // Cleanup
-            setTimeout(() => confetti.remove(), (duration + delay) * 1000);
-        }
+                confetti.style.bottom = '-10px';
+                confetti.style.left = isLeft ? '-10px' : 'auto';
+                confetti.style.right = isLeft ? 'auto' : '-10px';
+
+                const rndX = Math.random();
+                const rndY = Math.random();
+                const rndR = (Math.random() - 0.5) * 1440;
+
+                confetti.style.setProperty('--rnd-x', rndX);
+                confetti.style.setProperty('--rnd-y', rndY);
+                confetti.style.setProperty('--rnd-r', `${rndR}deg`);
+
+                const duration = 1.5 + Math.random() * 2.5;
+                const delay = Math.random() * 0.4;
+                confetti.style.animation = `${isLeft ? 'confettiBurstLeft' : 'confettiBurstRight'} ${duration}s ${delay}s cubic-bezier(0.1, 0.8, 0.3, 1) forwards`;
+
+                container.appendChild(confetti);
+                setTimeout(() => confetti.remove(), (duration + delay) * 1000);
+            }
+        };
+
+        spawnParticles(true);
+        spawnParticles(false);
     };
 
     window.triggerAboutCelebration = (e) => {
@@ -411,4 +430,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // --- Auto-Trigger on About Page Load ---
+    if (window.location.pathname.includes('about.html')) {
+        // Delay slightly for visual impact after entrance animations
+        setTimeout(() => {
+            if (window.createConfetti) createConfetti();
+        }, 800);
+    }
 });

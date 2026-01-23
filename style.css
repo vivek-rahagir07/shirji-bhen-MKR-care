@@ -3455,33 +3455,44 @@ textarea.form-control {
 
 .confetti-particle {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    background: var(--gold);
-    border-radius: 2px;
-    opacity: 0.8;
+    width: 6px;
+    height: 6px;
+    opacity: 0.9;
+    --rnd-x: 0;
+    --rnd-y: 0;
+    --rnd-r: 0deg;
 }
 
 @keyframes confettiBurstLeft {
     0% {
-        transform: translate(-50px, 100vh) rotate(0deg);
+        transform: translate(0, 0) rotate(0deg) scale(0);
+        opacity: 0;
+    }
+
+    15% {
         opacity: 1;
+        transform: translate(calc(5vw * var(--rnd-x)), calc(-10vh * var(--rnd-y))) rotate(45deg) scale(1);
     }
 
     100% {
-        transform: translate(50vw, -100px) rotate(720deg);
+        transform: translate(calc(40vw + 300px * var(--rnd-x)), calc(-80vh + 300px * var(--rnd-y))) rotate(var(--rnd-r)) scale(0.4);
         opacity: 0;
     }
 }
 
 @keyframes confettiBurstRight {
     0% {
-        transform: translate(calc(100vw + 50px), 100vh) rotate(0deg);
+        transform: translate(0, 0) rotate(0deg) scale(0);
+        opacity: 0;
+    }
+
+    15% {
         opacity: 1;
+        transform: translate(calc(-5vw * var(--rnd-x)), calc(-10vh * var(--rnd-y))) rotate(-45deg) scale(1);
     }
 
     100% {
-        transform: translate(50vw, -100px) rotate(-720deg);
+        transform: translate(calc(-40vw - 300px * var(--rnd-x)), calc(-80vh + 300px * var(--rnd-y))) rotate(var(--rnd-r)) scale(0.4);
         opacity: 0;
     }
 }
