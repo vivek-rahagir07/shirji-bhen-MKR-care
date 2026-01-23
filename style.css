@@ -695,13 +695,7 @@ h3,
 }
 
 
-/*hero section close*/
 
-
-
-
-
-/* --- Infinite Slider Section --- */
 .slider-section {
     padding: 80px 0;
     background-color: var(--white);
@@ -768,18 +762,12 @@ h3,
     }
 
     100% {
-        /* Move exactly the width of the first 10 images */
+        
         transform: translateX(calc(-370px * 10));
     }
 }
 
-/*slider logic close*/
 
-
-
-
-
-/* Container for alignment */
 .container {
     max-width: 1600px;
     /* Expansive layout */
@@ -787,7 +775,7 @@ h3,
     padding: 0 40px;
 }
 
-/* --- Cinematic Brand Story --- */
+
 .brand-story-cinematic {
     padding: 160px 0;
     background-color: var(--white);
