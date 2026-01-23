@@ -361,70 +361,45 @@ document.addEventListener('DOMContentLoaded', () => {
     footerColumns.forEach(column => footerObserver.observe(column));
 
     // --- Celebratory About Popup Logic ---
+    // --- Celebratory About Popup Logic (Powered by canvas-confetti) ---
     window.createConfetti = () => {
-        const container = document.getElementById('confettiContainer');
-        if (!container) return;
+        // Double burst from sides
+        var duration = 3 * 1000;
+        var end = Date.now() + duration;
 
-        const colors = ['#C5A059', '#FFE4E1', '#FFF5F7', '#FFD1DC', '#D4AF37', '#F4DCA1', '#E6E6FA'];
-        const particlesPerSide = 125;
+        (function frame() {
+            // launch a few confetti from the left edge
+            confetti({
+                particleCount: 7,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0 },
+                colors: ['#C5A059', '#FFE4E1', '#FFF5F7', '#FFD1DC', '#D4AF37']
+            });
+            // and launch a few from the right edge
+            confetti({
+                particleCount: 7,
+                angle: 120,
+                spread: 55,
+                origin: { x: 1 },
+                colors: ['#C5A059', '#FFE4E1', '#FFF5F7', '#FFD1DC', '#D4AF37']
+            });
 
-        const spawnParticles = (isLeft) => {
-            for (let i = 0; i < particlesPerSide; i++) {
-                const confetti = document.createElement('div');
-                confetti.classList.add('confetti-particle');
-
-                const color = colors[Math.floor(Math.random() * colors.length)];
-                const size = Math.random() * 6 + 4;
-                const isCircle = Math.random() > 0.5;
-
-                confetti.style.backgroundColor = color;
-                confetti.style.width = `${size}px`;
-                confetti.style.height = `${size}px`;
-                if (isCircle) confetti.style.borderRadius = '50%';
-
-                confetti.style.bottom = '-10px';
-                confetti.style.left = isLeft ? '-10px' : 'auto';
-                confetti.style.right = isLeft ? 'auto' : '-10px';
-
-                const rndX = Math.random();
-                const rndY = Math.random();
-                const rndR = (Math.random() - 0.5) * 1440;
-
-                confetti.style.setProperty('--rnd-x', rndX);
-                confetti.style.setProperty('--rnd-y', rndY);
-                confetti.style.setProperty('--rnd-r', `${rndR}deg`);
-
-                const duration = 1.5 + Math.random() * 2.5;
-                const delay = Math.random() * 0.4;
-                confetti.style.animation = `${isLeft ? 'confettiBurstLeft' : 'confettiBurstRight'} ${duration}s ${delay}s cubic-bezier(0.1, 0.8, 0.3, 1) forwards`;
-
-                container.appendChild(confetti);
-                setTimeout(() => confetti.remove(), (duration + delay) * 1000);
+            if (Date.now() < end) {
+                requestAnimationFrame(frame);
             }
-        };
-
-        spawnParticles(true);
-        spawnParticles(false);
+        }());
     };
 
     window.triggerAboutCelebration = (e) => {
         if (e) e.preventDefault();
         createConfetti();
-        setTimeout(() => {
-            const modal = document.getElementById('brandModal');
-            if (modal) modal.classList.add('active');
-        }, 500);
+        // Removed modal logic as per user request to just have celebration
     };
 
-    window.closeAboutModal = () => {
-        const modal = document.getElementById('brandModal');
-        if (modal) modal.classList.remove('active');
-    };
-
-    // Attach to About links
+    // Attach to About links if we are on the page
     document.querySelectorAll('a[href="about.html"], .split-narrative').forEach(el => {
         el.addEventListener('click', (e) => {
-            // Only trigger if we are on the about page or the element is the narrative section
             if (window.location.pathname.includes('about.html') || el.classList.contains('split-narrative')) {
                 triggerAboutCelebration(e);
             }
@@ -433,9 +408,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Auto-Trigger on About Page Load ---
     if (window.location.pathname.includes('about.html')) {
-        // Delay slightly for visual impact after entrance animations
-        setTimeout(() => {
-            if (window.createConfetti) createConfetti();
-        }, 800);
+        // Check if confetti is loaded
+        const checkConfetti = setInterval(() => {
+            if (typeof confetti === 'function') {
+                clearInterval(checkConfetti);
+                setTimeout(() => {
+                    createConfetti();
+                }, 800);
+            }
+        }, 100);
+
+        // Safety clear after 5s
+        setTimeout(() => clearInterval(checkConfetti), 5000);
     }
 });

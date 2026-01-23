@@ -304,7 +304,25 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </div>
- 
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <!-- Celebratory Birthday-Style Modal -->
+    <div id="brandModal" class="brand-modal">
+        <div class="modal-overlay" onclick="closeAboutModal()"></div>
+        <div class="modal-content birthday-style">
+            <div class="modal-body">
+                <h2 class="established-text">ESTABLISHED IN 1999</h2>
+                <div class="typewriter-container">
+                    <p id="birthdayTypewriter" class="birthday-tagline"></p>
+                </div>
+                <button class="close-modal-btn" onclick="closeAboutModal()">Explore Our Legacy</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confetti Container -->
+    <div id="confettiContainer" class="confetti-container"></div>
+
     <script src="script.js"></script>
 </body>
 
