@@ -1582,58 +1582,103 @@ h3,
     margin-top: 10px;
 }
 
-.intro-flex {
-    display: flex;
-    gap: 50px;
-    padding: 80px 0;
-    align-items: center;
-    flex-wrap: wrap;
-    /* */
-}
-
-.intro-content {
-    flex: 2;
-    min-width: 300px;
-}
-
-.intro-content h2 {
-    color: #5D1F6E;
-    margin-bottom: 20px;
-    font-size: 32px;
-}
-
-.intro-content p {
-    font-size: 18px;
-    line-height: 1.8;
-    color: #444;
-}
-
-.intro-stats {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.stat-item {
-    background: #F8F4F9;
-    padding: 30px;
-    border-radius: 15px;
+/* --- Center-Aligned Narrative & Stats --- */
+.narrative-container {
+    max-width: 900px;
+    margin: 0 auto;
     text-align: center;
-    border-left: 5px solid #5D1F6E;
+    padding: 100px 2rem;
 }
 
-.stat-number {
-    font-size: 40px;
-    font-weight: bold;
-    color: #5D1F6E;
+.narrative-block {
+    margin-bottom: 6rem;
+}
+
+.narrative-block h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: var(--primary);
+}
+
+.narrative-block p {
+    font-size: 1.2rem;
+    line-height: 2;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.brand-quote {
+    font-size: 2.5rem;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--gold);
+    margin: 4rem 0;
+    line-height: 1.2;
+    position: relative;
+    display: inline-block;
+}
+
+.brand-quote::before,
+.brand-quote::after {
+    content: '"';
+    font-size: 4rem;
+    opacity: 0.3;
+    position: absolute;
+}
+
+.brand-quote::before {
+    left: -40px;
+    top: -20px;
+}
+
+.brand-quote::after {
+    right: -40px;
+    bottom: -40px;
+}
+
+.premium-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 4rem;
+}
+
+.stat-vibe {
+    text-align: center;
+}
+
+.stat-vibe .number {
+    font-size: 5rem;
+    font-family: 'Playfair Display', serif;
+    display: block;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1;
+}
+
+.stat-vibe .label {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    font-weight: 700;
+    margin-top: 1rem;
     display: block;
 }
 
-.stat-label {
-    font-size: 13px;
-    color: #777;
-    font-weight: 700;
+/* Redefining legacy basic styles if they exist */
+.about-intro {
+    background: var(--white);
+    padding: 120px 0;
+}
+
+.intro-flex {
+    flex-direction: column;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 /* TIMELINE STYLES */
@@ -2936,9 +2981,10 @@ h3,
         padding: 2.5rem 1.5rem;
     }
 }
+
 /* --- Contact Section --- */
 .contact-section {
-    padding: 100px 0;
+    padding: 160px 0 100px;
     background: var(--white);
     position: relative;
     overflow: hidden;
@@ -3090,8 +3136,25 @@ textarea.form-control {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
-    
+
     .contact-info-visual h2 {
         font-size: 2.5rem;
     }
+}
+/* --- Utility Classes --- */
+.text-center { text-align: center !important; }
+.centered { margin-left: auto !important; margin-right: auto !important; }
+.max-600 { max-width: 600px; }
+.max-800 { max-width: 800px; }
+.py-100 { padding-top: 100px !important; padding-bottom: 100px !important; }
+.gold-border { border: 1px solid var(--gold-border) !important; }
+
+/* --- About Narrative Enhancements --- */
+.about-narrative {
+    position: relative;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 240, 245, 0.5) 0%, var(--white) 100%);
+}
+
+.max-600.centered {
+    display: block;
 }
