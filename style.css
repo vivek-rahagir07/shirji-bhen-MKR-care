@@ -513,7 +513,7 @@ h3,
 .hero-content {
     position: relative;
     z-index: 3;
-    max-width: 750px;
+    max-width: 650px;
     padding: 0;
     animation: luxuryFadeIn 2.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -527,7 +527,8 @@ h3,
     margin: 0 auto;
     position: relative;
     z-index: 10;
-    gap: 2rem;
+    gap: 4rem;
+    /* Increased gap */
 }
 
 .hero-image-container {
@@ -572,8 +573,7 @@ h3,
     letter-spacing: -0.04em;
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    white-space: nowrap;
-    /* Force single line */
+    /* Removed white-space: nowrap to allow wrapping */
 }
 
 .hero h1 span {
@@ -845,8 +845,8 @@ h3,
     height: 900px;
     width: 800px;
     margin: 0;
-    margin-right: -200px;
-    /* Stronger bleed to the right */
+    margin-right: -100px;
+    /* Reduced bleed to stay more on right */
     perspective: 4000px;
     display: flex;
     justify-content: center;
@@ -875,10 +875,11 @@ h3,
 
 .fan-item {
     position: absolute;
-    width: 520px;
-    /* Slightly larger cards */
+    width: 420px;
+    /* Reduced card size */
     height: auto;
-    border-radius: 40px;
+    border-radius: 32px;
+    /* Slightly reduced radius for smaller size */
     background: var(--white);
     padding: 20px;
     box-shadow: 0 60px 150px rgba(0, 0, 0, 0.2),
@@ -956,7 +957,7 @@ h3,
 
 /* Refined Shifting Fan-out (Mostly on Right) */
 .product-fan-out.active .item-1 {
-    transform: translateX(-50px) scale(0.8) rotate(-15deg) translateY(120px) translateZ(0);
+    transform: translateX(0px) scale(0.8) rotate(-15deg) translateY(120px) translateZ(0);
     z-index: 1;
 }
 
@@ -966,18 +967,18 @@ h3,
 }
 
 .product-fan-out.active .item-3 {
-    transform: translateX(250px) scale(0.9) rotate(8deg) translateY(60px) translateZ(200px);
+    transform: translateX(180px) scale(0.9) rotate(8deg) translateY(60px) translateZ(200px);
     z-index: 3;
 }
 
 .product-fan-out.active .item-4 {
-    transform: translateX(400px) scale(0.95) rotate(15deg) translateY(120px) translateZ(300px);
+    transform: translateX(320px) scale(0.95) rotate(15deg) translateY(120px) translateZ(300px);
     z-index: 4;
 }
 
 .fan-item.is-featured {
     z-index: 50 !important;
-    transform: translateX(-200px) scale(1.2) translateY(-100px) translateZ(700px) rotateX(0deg) rotateY(0deg) !important;
+    transform: translateX(0px) scale(1.1) translateY(-50px) translateZ(700px) rotateX(0deg) rotateY(0deg) !important;
     box-shadow:
         0 120px 300px rgba(0, 0, 0, 0.6),
         0 0 120px rgba(197, 160, 89, 0.6);
