@@ -114,16 +114,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Counter Animation for About Page ---
     const counters = document.querySelectorAll('.stat-number');
     const runCounter = (el) => {
-        const target = parseInt(el.innerText);
+        const text = el.innerText;
+        const target = parseInt(text.replace(/[^0-9]/g, ''));
+        const suffix = text.replace(/[0-9]/g, '');
         let count = 0;
-        const increment = target / 50;
+        const duration = 2000; // 2 seconds
+        const steps = 50;
+        const increment = target / steps;
+        const interval = duration / steps;
+
         const updateCount = () => {
             if (count < target) {
                 count += increment;
-                el.innerText = Math.ceil(count) + (el.id === 'experience-counter' ? '+' : '');
-                setTimeout(updateCount, 40);
+                el.innerText = Math.ceil(count) + suffix;
+                setTimeout(updateCount, interval);
             } else {
-                el.innerText = target + (el.id === 'experience-counter' ? '+' : '');
+                el.innerText = target + suffix;
             }
         };
         updateCount();
