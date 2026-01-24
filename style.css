@@ -1046,9 +1046,10 @@ h3,
 }
 
 
-.brand-story-cinematic {
+.brand-story {
     padding: 160px 0;
-    background-color: var(--white);
+    text-align: center;
+    background: radial-gradient(circle at center, #1A0B2E 0%, #0D051A 100%);
     position: relative;
     overflow: hidden;
 }
@@ -1057,6 +1058,89 @@ h3,
     max-width: 900px;
     margin: 0 auto;
     text-align: center;
+    padding: 0 20px;
+}
+
+.premium-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--gold-gradient);
+    margin: 40px auto;
+    position: relative;
+}
+
+.premium-divider::before,
+.premium-divider::after {
+    content: '✧';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold);
+    font-size: 1.2rem;
+}
+
+.premium-divider::before {
+    left: -20px;
+}
+
+.premium-divider::after {
+    right: -20px;
+}
+
+.brand-story h2 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.brand-story .lead {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.4em;
+    color: var(--gold-luminous);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.brand-story .story-text {
+    font-size: 1.35rem;
+    line-height: 1.8;
+    color: var(--white);
+    opacity: 0.85;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    font-weight: 300;
+}
+
+.motto-refined {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.8rem;
+    color: var(--gold-bright);
+    margin-top: 3rem;
+    opacity: 0.8;
+    position: relative;
+}
+
+.motto-refined::before,
+.motto-refined::after {
+    content: '"';
+    font-size: 3rem;
+    opacity: 0.2;
+    position: absolute;
+    top: -10px;
+}
+
+.motto-refined::before {
+    left: -20px;
+}
+
+.motto-refined::after {
+    right: -20px;
 }
 
 .cinematic-title {
