@@ -254,119 +254,104 @@
                 <p class="brand-description">Precision Science. Natural Elegance. The future of oral hygiene crafted for
                     those who choose smarter, modern care.</p>
             </div>
-            <!-- ... rest of footer ... -->
+
+            <div class="footer-info footer-column">
+                <h4>Our Headquarters</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <span class="icon">📍</span>
+                        <div class="text">
+                            KHASRA No. 655, Opp Murgi Form,<br>
+                            Agra-Delhi Highway NH-2, <br>
+                            ARTHONI, AGRA U.P. 282002
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="contacts" class="footer-contact footer-column">
+                <h4>Support</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <span class="icon">📞</span>
+                        <div class="text">
+                            <strong>Help Lines:</strong><br>
+                            +91 92197 91970<br>
+                            +91 88817 49444
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">📧</span>
+                        <div class="text"><a href="mailto:care@laserten.com">care@laserten.com</a></div>
+                    </li>
+                    <li>
+                        <span class="icon">🌐</span>
+                        <div class="text"><a href="http://www.laserten.com" target="_blank">www.laserten.com</a></div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-links footer-column">
+                <h4>Navigation</h4>
+                <ul class="footer-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="products.html">Our Products</a></li>
+                    <li><a href="oral.html">Shop Oral Care</a></li>
+                </ul>
+            </div>
         </div>
+
         <div class="footer-bottom">
-            <p>&copy; 2025 LaserTen | A Unit of MKR FOOD PRODUCTS. All rights reserved.</p>
+            <div class="container bottom-flex">
+                <p>&copy; 2025 LaserTen | A Unit of MKR FOOD PRODUCTS. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <!-- MASTERPIECE SCRIPTS -->
-    <script>
-        // Elite Loader
-        window.addEventListener('load', () => {
-            const loader = document.querySelector('.masterpiece-loader');
-            setTimeout(() => {
-                loader.classList.add('fade-out');
-            }, 1800);
-        });
+    <div class="mobile-menu-overlay">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="oral.html">Oral Care</a></li>
+            <li><a href="distributors.html">Distributors</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
 
-        // Mouse Parallax
-        document.addEventListener('mousemove', (e) => {
-            const elements = document.querySelectorAll('.parallax-element');
-            const x = (window.innerWidth - e.pageX * 2) / 100;
-            const y = (window.innerHeight - e.pageY * 2) / 100;
+    <!-- Celebratory Birthday-Style Modal -->
+    <div id="brandModal" class="brand-modal">
+        <div class="modal-overlay" onclick="closeAboutModal()"></div>
+        <div class="modal-content birthday-style">
+            <div class="modal-body">
+                <div class="owner-photo-wrapper">
+                    <div class="owner-photo-aura"></div>
+                    <div class="owner-photo">
+                        <img src="photos/papa photo .jpeg" alt="Mr. Kapil Agarwal"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+                <div class="owner-content">
+                    <h2 class="gold-text" style="font-size: 1.8rem; margin-bottom: 1rem;">A Message from Our Founder
+                    </h2>
+                    <p class="owner-text">
+                        "Laserten is more than just a brand; it's a legacy of trust and innovation. Our mission remains
+                        clear—to bring you the highest standard of oral care, blended with the purity of nature."
+                    </p>
+                    <div class="owner-name gold-text">— MR. KAPIL AGARWAL</div>
+                </div>
+                <button class="close-modal-btn" onclick="closeAboutModal()">Explore Our Journey</button>
+            </div>
+        </div>
+    </div>
 
-            elements.forEach(el => {
-                const depth = el.getAttribute('data-depth');
-                el.style.transform = `translate(${x * depth}px, ${y * depth}px)`;
-            });
-        });
-
-        // Magnetic Cards
-        document.querySelectorAll('.magnetic-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
-
-                const xCenter = rect.width / 2;
-                const yCenter = rect.height / 2;
-                card.style.transform = `perspective(1000px) rotateX(${(y - yCenter) / 15}deg) rotateY(${(xCenter - x) / 15}deg) translateY(-10px) scale(1.02)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
-            });
-        });
-
-        // Masterpiece Particle Background
-        const canvas = document.getElementById('collection-particle-canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = 400; // Match hero height roughly
-
-        let particles = [];
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 1.5 + 0.5;
-                this.speedX = Math.random() * 0.4 - 0.2;
-                this.speedY = Math.random() * 0.4 - 0.2;
-            }
-            update() {
-                this.x += this.speedX; this.y += this.speedY;
-                if (this.x > canvas.width) this.x = 0; if (this.x < 0) this.x = canvas.width;
-                if (this.y > canvas.height) this.y = 0; if (this.y < 0) this.y = canvas.height;
-            }
-            draw() {
-                ctx.fillStyle = 'rgba(197, 160, 89, 0.2)';
-                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
-            }
-        }
-        function init() { for (let i = 0; i < 40; i++) particles.push(new Particle()); }
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => { p.update(); p.draw(); });
-            requestAnimationFrame(animate);
-        }
-        init(); animate();
-
-        // Staggered Filtering
-        function filterElite(category, event) {
-            const cards = document.querySelectorAll('.elite-product-card');
-            const btns = document.querySelectorAll('.filter-luxury-btn');
-
-            btns.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-
-            cards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px) scale(0.95)';
-
-                setTimeout(() => {
-                    if (category === 'all' || card.classList.contains(category)) {
-                        card.style.display = 'block';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0) scale(1)';
-                        }, index * 30); // Dynamic stagger
-                    } else {
-                        card.style.display = 'none';
-                    }
-                }, 300);
-            });
-        }
-
-        // Reveal Observer
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
