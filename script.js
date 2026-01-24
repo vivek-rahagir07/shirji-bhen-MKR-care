@@ -360,39 +360,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     footerColumns.forEach(column => footerObserver.observe(column));
 
-    // --- Celebratory About Popup Logic ---
     // --- Celebratory About Popup Logic (Powered by canvas-confetti) ---
-    window.createConfetti = () => {
-        // Double burst from sides
-        var duration = 3 * 1000;
-        var end = Date.now() + duration;
-
-        (function frame() {
-            // launch a few confetti from the left edge
-            confetti({
-                particleCount: 7,
-                angle: 60,
-                spread: 55,
-                origin: { x: 0 },
-                colors: ['#C5A059', '#FFE4E1', '#FFF5F7', '#FFD1DC', '#D4AF37']
-            });
-            // and launch a few from the right edge
-            confetti({
-                particleCount: 7,
-                angle: 120,
-                spread: 55,
-                origin: { x: 1 },
-                colors: ['#C5A059', '#FFE4E1', '#FFF5F7', '#FFD1DC', '#D4AF37']
-            });
-
-            if (Date.now() < end) {
-                requestAnimationFrame(frame);
-            }
-        }());
-    };
-
     window.typeBirthdayTagline = () => {
-        const text = "our journey of INNOVATION ,QUALITY AND CUSTOMER TRUST";
+        const text = "Innovation, Trust and Quality";
         const el = document.getElementById('birthdayTypewriter');
         if (!el) return;
 
@@ -409,60 +379,54 @@ document.addEventListener('DOMContentLoaded', () => {
         type();
     };
 
-    window.triggerAboutCelebration = (e) => {
-        if (e) e.preventDefault();
-        createConfetti();
+    window.triggerAboutCelebration = () => {
 
-        // Show modal after a brief burst delay
-        setTimeout(() => {
-            const modal = document.getElementById('brandModal');
-            if (modal) {
-                modal.classList.add('active');
-                // Trigger typewriter
-                setTimeout(window.typeBirthdayTagline, 300);
-            }
-        }, 500);
+        const modal = document.getElementById('brandModal');
+        if (!modal || modal.classList.contains('active')) return;
+
+        // No confetti on home page as per request
+        const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('shirji-bhen-MKR-care/');
+        if (!isHomePage) {
+            startContinuousConfetti();
+        }
+
+        modal.classList.add('active');
+        setTimeout(window.typeBirthdayTagline, 300);
+    };
+
+    window.navigateToAbout = () => {
+        sessionStorage.setItem('founderMessageSeenOnEntry', 'true');
+        window.location.href = 'about.html';
     };
 
     window.closeAboutModal = () => {
         const modal = document.getElementById('brandModal');
-        if (modal) modal.classList.remove('active');
+        if (modal) {
+            modal.classList.remove('active');
+            stopContinuousConfetti();
+        }
     };
 
-    // Attach to About links if we are on the page
-    document.querySelectorAll('a[href="about.html"], .split-narrative').forEach(el => {
-        el.addEventListener('click', (e) => {
-            if (window.location.pathname.includes('about.html') || el.classList.contains('split-narrative')) {
-                triggerAboutCelebration(e);
-            }
-        });
-    });
-
-    // --- Auto-Trigger on About Page Load ---
+    // Auto-trigger on About Page entry
     if (window.location.pathname.includes('about.html')) {
-        // Delay slightly for visual impact after entrance animations
+        // Reduced delay for better UX and visibility
         setTimeout(() => {
-            if (typeof confetti === 'function') {
-                createConfetti();
-                setTimeout(() => {
-                    const modal = document.getElementById('brandModal');
-                    if (modal) {
-                        modal.classList.add('active');
-                        setTimeout(window.typeBirthdayTagline, 300);
-                    }
-                }, 500);
-            } else if (window.createConfetti) {
-                // Fallback if custom CSS confetti is used
-                window.createConfetti();
-                setTimeout(() => {
-                    const modal = document.getElementById('brandModal');
-                    if (modal) {
-                        modal.classList.add('active');
-                        setTimeout(window.typeBirthdayTagline, 300);
-                    }
-                }, 500);
-            }
-        }, 800);
+            triggerAboutCelebration();
+        }, 1000); // 1 second delay
+    }
+
+    // --- Legacy Typewriter Trigger (Normal Screen) ---
+    const legacySection = document.querySelector('.legacy-celebration');
+    if (legacySection) {
+        const legacyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(window.typeBirthdayTagline, 500);
+                    legacyObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        legacyObserver.observe(legacySection);
     }
     // --- Scroll Progress Bar ---
     const progressBar = document.createElement('div');
@@ -526,4 +490,43 @@ document.addEventListener('DOMContentLoaded', () => {
             img.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
         });
     });
+    // --- Owner Modal & Continuous Confetti Logic ---
+    let confettiInterval;
+
+    window.startContinuousConfetti = () => {
+        const duration = 15 * 1000;
+        const animationEnd = Date.now() + duration;
+        const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 10000 };
+
+        function randomInRange(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        confettiInterval = setInterval(function () {
+            const timeLeft = animationEnd - Date.now();
+
+            // We want it to be truly continuous until closed, so we don't strictly stop based on timeLeft
+            // but we use timeLeft to vary the intensity if we want. For now, let's just keep it going.
+
+            confetti({
+                ...defaults,
+                particleCount: 5,
+                origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+                colors: ['#C5A059', '#FFE4E1', '#FFF5F7', '#FFD1DC', '#D4AF37']
+            });
+            confetti({
+                ...defaults,
+                particleCount: 5,
+                origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+                colors: ['#C5A059', '#FFE4E1', '#FFF5F7', '#FFD1DC', '#D4AF37']
+            });
+        }, 200);
+    };
+
+    window.stopContinuousConfetti = () => {
+        if (confettiInterval) {
+            clearInterval(confettiInterval);
+        }
+    };
+
 });

@@ -37,7 +37,7 @@
     </nav>
 
 
-    <header class="hero">
+    <header class="hero" id="main-hero">
         <div class="aura-container">
             <div class="aura-blob aura-blob-1"></div>
             <div class="aura-blob aura-blob-2"></div>
@@ -337,6 +337,33 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </div>
+    <!-- Celebratory Birthday-Style Modal (Before Opening About) -->
+    <div id="brandModal" class="brand-modal">
+        <div class="modal-overlay" onclick="closeAboutModal()"></div>
+        <div class="modal-content birthday-style">
+            <div class="modal-body">
+                <div class="owner-photo-wrapper">
+                    <div class="owner-photo-aura"></div>
+                    <div class="owner-photo">
+                        <img src="photos/papa photo .jpeg" alt="Mr. Kapil Agarwal"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+                <div class="owner-content">
+                    <h2 class="gold-text" style="font-size: 1.8rem; margin-bottom: 1rem;">A Message from Our Founder
+                    </h2>
+                    <p class="owner-text">
+                        "Laserten is more than just a brand; it's a legacy of trust and innovation. Our mission remains
+                        clear—to bring you the highest standard of oral care, blended with the purity of nature."
+                    </p>
+                    <div class="owner-name gold-text">— MR. KAPIL AGARWAL</div>
+                </div>
+                <button class="close-modal-btn" onclick="navigateToAbout()">Explore Our Journey</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <script src="script.js"></script>
 </body>
 
