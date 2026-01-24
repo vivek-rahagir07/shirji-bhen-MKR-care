@@ -350,7 +350,7 @@ h3,
 
 .gold-bg {
     background: var(--gold-gradient);
-    color: var(--primary);
+    color: #000000;
 }
 
 @keyframes goldShimmer {
