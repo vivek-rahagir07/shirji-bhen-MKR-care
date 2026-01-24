@@ -2044,7 +2044,7 @@ h3,
 /* --- Filter Bar --- */
 .filter-section {
     background: var(--white);
-    padding: 2rem 0;
+    padding: 0.5rem 0;
     position: sticky;
     top: 80px;
     z-index: 1000;
@@ -5190,7 +5190,7 @@ textarea.form-control {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
-    margin: 1.5rem 0;
+    margin: 0.5rem 0;
     padding: 0.4rem;
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(25px);
@@ -5205,7 +5205,7 @@ textarea.form-control {
 .filter-luxury-btn {
     background: none;
     border: none;
-    color: var(--white);
+    color: var(--primary);
     padding: 0.5rem 1.2rem;
     border-radius: 40px;
     font-size: 0.8rem;
