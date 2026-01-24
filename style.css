@@ -39,12 +39,18 @@
     letter-spacing: -0.01em;
 }
 
+html,
+body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--white);
     color: var(--text-main);
     line-height: 1.7;
-    overflow-x: hidden;
 }
 
 h1,
@@ -65,7 +71,7 @@ h3,
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 6%;
+    padding: 1.5rem 5%;
     background: rgba(10, 10, 10, 0.15);
     /* Very subtle tint */
     backdrop-filter: blur(25px);
@@ -73,6 +79,7 @@ h3,
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     z-index: 2000;
     transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .navbar.scrolled {
@@ -82,32 +89,35 @@ h3,
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo span {
     font-size: 1.8rem;
     font-weight: 700;
     background: var(--gold-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-decoration: none;
     letter-spacing: -0.5px;
-    position: relative;
-    display: inline-block;
+    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
 }
 
-.logo::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--gold-gradient);
-    transition: var(--transition);
+.logo:hover {
+    transform: scale(1.02);
 }
 
-.logo:hover::after {
-    width: 100%;
-}
 
 .uppertab {
     display: flex;
@@ -399,6 +409,7 @@ h3,
     border: none;
     background: none;
     padding: 10px;
+    position: relative;
 }
 
 .hamburger span {
@@ -456,15 +467,15 @@ h3,
     overflow: hidden;
 }
 
-.mobile-nav-links a {
+.mobile-nav-links li a {
     color: var(--white);
+    font-size: 1.8rem;
+    font-family: 'Playfair Display', serif;
     text-decoration: none;
-    font-size: 2rem;
-    font-weight: 700;
-    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    transition: all 0.4s ease;
     display: block;
-    transform: translateY(100%);
-    transition: transform 0.5s ease;
+    padding: 10px 0;
 }
 
 .mobile-menu-overlay.active .mobile-nav-links a {
@@ -836,14 +847,31 @@ h3,
 }
 
 .hero h1 {
-    font-size: clamp(2rem, 5vw, 4.2rem);
+    font-size: clamp(2rem, 8vw, 4rem);
     /* Slightly smaller for better fit */
     line-height: 1.1;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     letter-spacing: -0.04em;
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    /* Removed white-space: nowrap to allow wrapping */
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 100px;
+        height: auto;
+        min-height: 80vh;
+        text-align: center;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.2rem, 10vw, 3rem);
+    }
 }
 
 .hero h1 span {
@@ -1039,10 +1067,16 @@ h3,
 
 
 .container {
-    max-width: 1600px;
-    /* Expansive layout */
+    width: 100%;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
 }
 
 
@@ -1184,15 +1218,42 @@ h3,
 /* --- Product Fan-Out Animation (Hero) --- */
 .product-fan-out {
     position: relative;
-    height: 900px;
-    width: 800px;
-    margin: 0;
-    margin-right: -100px;
-    /* Reduced bleed to stay more on right */
+    height: 600px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
     perspective: 4000px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media (max-width: 768px) {
+    .product-fan-out {
+        height: 400px;
+    }
+
+    .fan-item {
+        width: 180px;
+        padding: 10px;
+        border-width: 4px;
+    }
+
+    .product-fan-out.active .item-1 {
+        transform: translateX(-40px) scale(0.7) rotate(-15deg) translateY(40px) translateZ(0);
+    }
+
+    .product-fan-out.active .item-2 {
+        transform: translateX(-20px) scale(0.75) rotate(-8deg) translateY(20px) translateZ(50px);
+    }
+
+    .product-fan-out.active .item-3 {
+        transform: translateX(20px) scale(0.8) rotate(8deg) translateY(20px) translateZ(100px);
+    }
+
+    .product-fan-out.active .item-4 {
+        transform: translateX(40px) scale(0.85) rotate(15deg) translateY(40px) translateZ(150px);
+    }
 }
 
 @keyframes heroStackFloat {
@@ -1217,7 +1278,7 @@ h3,
 
 .fan-item {
     position: absolute;
-    width: 320px;
+    width: 280px;
     /* Further reduced card size for better UI/UX */
     height: auto;
     border-radius: 24px;
@@ -1230,7 +1291,7 @@ h3,
     border: 10px solid var(--white);
     transition: all 1.5s cubic-bezier(0.23, 1, 0.32, 1);
     opacity: 0;
-    transform: translateX(200px) scale(0.6) rotateX(10deg);
+    transform: translateX(100px) scale(0.6) rotateX(10deg);
     pointer-events: auto;
     overflow: hidden;
 }
@@ -1543,6 +1604,25 @@ h3,
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2.5rem;
+}
+
+.flavour-grid,
+.virtue-grid,
+.benefit-grid,
+.points-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+@media (max-width: 600px) {
+
+    .flavour-grid,
+    .virtue-grid,
+    .benefit-grid,
+    .points-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .point {
@@ -2787,24 +2867,33 @@ h3,
 
 .carousel-3d-item {
     position: absolute;
-    width: 380px;
-    height: 440px;
+    width: 320px;
+    height: 480px;
     background: var(--white);
-    border-radius: 24px;
+    border-radius: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2.5rem;
-    box-shadow: var(--shadow-soft);
+    padding: 3rem;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
     transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     cursor: pointer;
     user-select: none;
-    border: 1px solid var(--bg-light);
     opacity: 0;
     visibility: hidden;
     transform: translateX(-50%) translateZ(-400px) rotateY(0deg);
     left: 50%;
+}
+
+@media (max-width: 768px) {
+    .carousel-3d-item {
+        width: 260px;
+        height: 380px;
+        padding: 1.5rem;
+    }
 }
 
 /* Item States manage by JS */
@@ -2935,12 +3024,17 @@ h3,
 .carousel-filter-tabs {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 3.5rem;
-    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
 }
 
 .filter-tab {
+    white-space: nowrap;
+    min-width: fit-content;
     padding: 12px 28px;
     border-radius: 50px;
     border: 1.5px solid var(--bg-light);
@@ -2973,13 +3067,13 @@ h3,
     }
 
     25% {
+        opacity: 1;
         transform: translateX(-120%) translateZ(-600px) rotateY(-45deg);
-        opacity: 0.5;
     }
 
     50% {
+        opacity: 1;
         transform: translateX(20%) translateZ(-300px) rotateY(20deg);
-        opacity: 0.7;
     }
 
     100% {
@@ -4903,16 +4997,43 @@ textarea.form-control {
     opacity: 0.3;
 }
 
+.body-visual-master {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    height: 700px;
+    background: url('photos/bodymap.svg') no-repeat center center;
+    background-size: contain;
+    filter: drop-shadow(0 0 50px rgba(197, 160, 89, 0.1));
+}
+
+@media (max-width: 768px) {
+    .body-visual-master {
+        height: 500px;
+    }
+
+    .body-map-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .detail-panel {
+        width: 100% !important;
+        margin-top: 2rem;
+    }
+}
+
 .hotspot {
     position: absolute;
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     background: var(--gold);
     border-radius: 50%;
     cursor: pointer;
     box-shadow: 0 0 10px var(--gold);
     animation: pulseGold 2s infinite;
     transform: translate(-50%, -50%);
+    z-index: 10;
 }
 
 @keyframes pulseGold {
