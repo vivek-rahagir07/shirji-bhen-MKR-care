@@ -4,14 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Products | LaserTen Premium Collection</title>
+    <title>Our Collections | LaserTen Luxury Archive</title>
     <meta name="description"
-        content="Explore LaserTen's premium collection of liquid toothpaste, mouthwash, and essential oils. Precision science for modern hygiene.">
-    <meta name="keywords" content="LaserTen products, mouthwash, liquid toothpaste, massage oil, After Drink">
+        content="Explore the LaserTen luxury archive. From advanced oral hygiene to botanical healing oils, discover the pinnacle of personal care.">
     <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
 </head>
 
-<body class="product-page">
+<body class="collection-page masterpiece-active">
+
+    <!-- MASTERPIECE: Cinematic Loader -->
+    <div class="masterpiece-loader">
+        <div class="loader-content">
+            <div class="loader-logo logo">Laserten</div>
+            <div class="loader-bar-container">
+                <div class="loader-bar"></div>
+            </div>
+            <p class="loader-text">MKR FOOD PRODUCTS</p>
+        </div>
+    </div>
 
     <nav class="navbar">
         <div class="logo">Laserten</div>
@@ -37,145 +50,190 @@
         </button>
     </nav>
 
-    <header class="product-hero hero">
-        <div class="hero-bg atmospheric"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-container">
-            <div class="hero-content reveal">
-                <p class="hero-subtitle shimmer-text">Our Collection</p>
-                <h1><span class="line-1 gold-text">Premium Hygiene</span><br><span class="line-2">& Wellness.</span>
-                </h1>
-            </div>
-            <div class="hero-image-container">
-                <img src="photos/luxury_mouthwash.png" alt="LaserTen Luxury Bottle" class="hero-image">
-            </div>
+    <!-- MASTERPIECE: Living Collection Hero -->
+    <header class="collection-hero masterpiece-hero-wrap">
+        <canvas id="collection-particle-canvas"></canvas>
+        <div class="container reveal">
+            <p class="hero-subtitle shimmer-text"
+                style="text-transform: uppercase; letter-spacing: 5px; margin-bottom: 1rem;">The Archive</p>
+            <h1 class="parallax-element" data-depth="0.4"><span class="line-1 gold-text">Curated</span> <span
+                    class="line-2">Collection.</span></h1>
+            <p style="max-width: 700px; margin: 2rem auto; opacity: 0.7; font-size: 1.1rem;" class="parallax-element"
+                data-depth="0.2">
+                Precision science meets botanical mastery. Explore our full range of elite hygiene and wellness
+                solutions.
+            </p>
         </div>
     </header>
 
-    <section class="filter-section">
-        <div class="container flex-filter">
-            <button class="filter-btn active" onclick="filterCategory('all')">All Products</button>
-            <button class="filter-btn" onclick="filterCategory('mouthwash')">LaserTen Mouthwash</button>
-            <button class="filter-btn" onclick="filterCategory('oil')">LaserTen Oil</button>
-            <button class="filter-btn" onclick="filterCategory('afterdrink')">After Drink</button>
+    <section class="filter-section reveal">
+        <div class="filter-luxury-bar" id="filter-bar">
+            <button class="filter-luxury-btn active" onclick="filterElite('all', event)">All Archive</button>
+            <button class="filter-luxury-btn" onclick="filterElite('mouthwash', event)">Oral Care</button>
+            <button class="filter-luxury-btn" onclick="filterElite('oil', event)">Botanical Oils</button>
+            <button class="filter-luxury-btn" onclick="filterElite('afterdrink', event)">Specialized Care</button>
         </div>
     </section>
 
-    <section class="product-grid-section reveal">
-        <div class="container product-flex-grid reveal stagger-reveal" id="product-list">
+    <main class="collection-grid-wrap">
+        <div class="elite-grid" id="elite-product-list">
 
-            <div class="product-card mouthwash gold-border reveal">
-                <div class="product-badge">Best Seller</div>
-                <div class="product-images">
-                    <img src="photos/purplepo.png" class="main-img" alt="LaserTen Cardamom">
-                    <h6 class="gold-text">LaserTen Cardamom Liquid Toothpaste And MouthWash</h6>
+            <!-- Mouthwash -->
+            <div class="elite-product-card mouthwash magnetic-card reveal">
+                <div class="card-badge">Best Seller</div>
+                <div class="card-image-wrap">
+                    <img src="photos/purplepo.png" alt="Cardamom Liquid Toothpaste">
+                </div>
+                <div class="card-info">
+                    <h3 class="gold-text">Cardamom Liquid Toothpaste</h3>
                     <p class="price">₹149</p>
-                    <p class="details">Instant cooling freshness with 99.9% germ protection.</p>
-                    <a href="https://wa.me/919219791970" class="buy-btn btn">Order Now</a>
+                    <p class="details">Instant aromatic freshness with 99.9% molecular germ protection.</p>
+                    <div class="card-btns">
+                        <a href="oral.html" class="btn-card secondary">Learn More</a>
+                        <a href="https://wa.me/919219791970" class="btn-card primary">Order</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="product-card mouthwash gold-border reveal" style="transition-delay: 0.1s;">
-                <div class="product-images">
-                    <img src="photos/bluepo.png" class="main-img" alt="LaserTen Clove">
-                    <h6 class="gold-text">LaserTen Clove Flavour Liquid Toothpaste And MouthWash</h6>
+            <div class="elite-product-card mouthwash magnetic-card reveal">
+                <div class="card-image-wrap">
+                    <img src="photos/bluepo.png" alt="Clove Liquid Toothpaste">
+                </div>
+                <div class="card-info">
+                    <h3 class="gold-text">Clove Liquid Toothpaste</h3>
                     <p class="price">₹149</p>
-                    <p class="details">Nature's purifying and soothing properties for gums.</p>
-                    <a href="https://wa.me/919219791970" class="buy-btn btn">Order Now</a>
+                    <p class="details">Nature's purifying extracts for advanced gum health and protection.</p>
+                    <div class="card-btns">
+                        <a href="oral.html" class="btn-card secondary">Learn More</a>
+                        <a href="https://wa.me/919219791970" class="btn-card primary">Order</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="product-card mouthwash gold-border reveal" style="transition-delay: 0.2s;">
-                <div class="product-images">
-                    <img src="photos/green.png" class="main-img" alt="LaserTen Mint">
-                    <h6 class="gold-text">LaserTen Mint Flavour Liquid Toothpaste And MouthWash</h6>
+            <div class="elite-product-card mouthwash magnetic-card reveal">
+                <div class="card-image-wrap">
+                    <img src="photos/green.png" alt="Mint Liquid Toothpaste">
+                </div>
+                <div class="card-info">
+                    <h3 class="gold-text">Mint Liquid Toothpaste</h3>
                     <p class="price">₹149</p>
-                    <p class="details">Powerful menthol freshness for long-lasting confidence.</p>
-                    <a href="https://wa.me/919219791970" class="buy-btn btn">Order Now</a>
+                    <p class="details">Pure menthol precision for long-lasting confidence and clarity.</p>
+                    <div class="card-btns">
+                        <a href="oral.html" class="btn-card secondary">Learn More</a>
+                        <a href="https://wa.me/919219791970" class="btn-card primary">Order</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="product-card mouthwash gold-border">
-                <div class="product-images">
-                    <img src="photos/purplebo.png" class="main-img" id="img1">
-                    <h6 class="gold-text">LaserTen Cardamom Flavour Liquid Toothpaste And MouthWash Bottle</h6>
-                    <p class="price">₹149</p>
-                    <p class="details">Instant cooling freshness with 99.9% germ protection.</p>
-                    <a href="#" class="buy-btn btn">Buy Now</a>
+            <!-- Oils -->
+            <div class="elite-product-card oil magnetic-card reveal">
+                <div class="card-badge">Golden Blend</div>
+                <div class="card-image-wrap">
+                    <img src="photos/luxury_oil_premium.png" alt="Laser 10 Oil">
                 </div>
-            </div>
-
-            <div class="product-card mouthwash gold-border">
-                <div class="product-images">
-                    <img src="photos/bluebo.png" class="main-img" id="img1">
-                    <h6 class="gold-text">LaserTen Clove Flavour Liquid Toothpaste And MouthWash Bottle</h6>
-                    <p class="price">₹149</p>
-                    <p class="details">Instant cooling freshness with 99.9% germ protection.</p>
-                    <a href="#" class="buy-btn btn">Buy Now</a>
-                </div>
-            </div>
-
-
-            <div class="product-card mouthwash gold-border">
-                <div class="product-images">
-                    <img src="photos/greenbo.png" class="main-img" id="img1">
-                    <h6 class="gold-text">LaserTen Mint Flavour Liquid Toothpaste And MouthWash Bottle</h6>
-                    <p class="price">₹149</p>
-                    <p class="details">Instant cooling freshness with 99.9% germ protection.</p>
-                    <a href="#" class="buy-btn btn">Buy Now</a>
-                </div>
-            </div>
-
-
-
-
-
-
-
-
-
-            <div class="product-card oil gold-border reveal">
-                <div class="product-images">
-                    <img src="photos/LO1.png" class="main-img" alt="Laser 10 Oil">
-                    <h6 class="gold-text">Laser 10 Multi Purpose Massage Oil (Sachet)</h6>
+                <div class="card-info">
+                    <h3 class="gold-text">Laser 10 Massage Oil</h3>
                     <p class="price">₹450</p>
-                    <p class="details">10 essential benefits for deep relief and healing in pocket size.</p>
-                    <a href="https://wa.me/919219791970" class="buy-btn btn">Order Now</a>
+                    <p class="details">Elite 10-in-1 botanical alchemy for deep muscular restoration.</p>
+                    <div class="card-btns">
+                        <a href="oil.html" class="btn-card secondary">Ritual Guide</a>
+                        <a href="https://wa.me/919219791970" class="btn-card primary">Order</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="product-card oil gold-border reveal" style="transition-delay: 0.1s;">
-                <div class="product-images">
-                    <img src="photos/LOB.png" class="main-img" alt="Laser 10 Oil Bottle">
-                    <h6 class="gold-text">Laser 10 Multi Purpose Massage Oil (Bottle)</h6>
+            <div class="elite-product-card oil magnetic-card reveal">
+                <div class="card-image-wrap">
+                    <img src="photos/LO1.png" alt="Laser 10 Sachet">
+                </div>
+                <div class="card-info">
+                    <h3 class="gold-text">Laser 10 Travel Archive</h3>
                     <p class="price">₹450</p>
-                    <p class="details">Professional strength formula for chronic joint and muscle pain.</p>
-                    <a href="https://wa.me/919219791970" class="buy-btn btn">Order Now</a>
+                    <p class="details">Pocket-sized healing. All the virtues of Laser 10 oil, refined for travel.</p>
+                    <div class="card-btns">
+                        <a href="oil.html" class="btn-card secondary">Ritual Guide</a>
+                        <a href="https://wa.me/919219791970" class="btn-card primary">Order</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="product-card afterdrink gold-border reveal">
-                <div class="product-images">
-                    <img src="photos/adepm.png" class="main-img" alt="After Drink Elaichi">
-                    <h4 class="gold-text">After Drink Elaichi Flavour</h4>
-                    <p class="price">₹200</p>
-                    <p class="details">Specialized formula to eliminate strong mouth odours instantly.</p>
-                    <a href="https://wa.me/919219791970" class="buy-btn btn">Order Now</a>
+            <!-- Bottles -->
+            <div class="elite-product-card mouthwash magnetic-card reveal">
+                <div class="card-image-wrap">
+                    <img src="photos/purplebo.png" alt="Cardamom Bottle">
+                </div>
+                <div class="card-info">
+                    <h3 class="gold-text">Cardamom Archive Bottle</h3>
+                    <p class="price">₹149</p>
+                    <p class="details">The signature liquid cleanse in a premium display bottle.</p>
+                    <div class="card-btns">
+                        <a href="oral.html" class="btn-card secondary">Learn More</a>
+                        <a href="https://wa.me/919219791970" class="btn-card primary">Order</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="product-card afterdrink gold-border reveal" style="transition-delay: 0.1s;">
-                <div class="product-images">
-                    <img src="photos/ADMBP1.png" class="main-img" alt="After Drink Mint">
-                    <h4 class="gold-text">After Drink Mint Flavour</h4>
+            <div class="elite-product-card mouthwash magnetic-card reveal">
+                <div class="card-image-wrap">
+                    <img src="photos/bluebo.png" alt="Clove Bottle">
+                </div>
+                <div class="card-info">
+                    <h3 class="gold-text">Clove Archive Bottle</h3>
+                    <p class="price">₹149</p>
+                    <p class="details">Traditional healing meets modern liquid technology.</p>
+                    <div class="card-btns">
+                        <a href="oral.html" class="btn-card secondary">Learn More</a>
+                        <a href="https://wa.me/919219791970" class="btn-card primary">Order</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="elite-product-card mouthwash magnetic-card reveal">
+                <div class="card-image-wrap">
+                    <img src="photos/greenbo.png" alt="Mint Bottle">
+                </div>
+                <div class="card-info">
+                    <h3 class="gold-text">Mint Archive Bottle</h3>
+                    <p class="price">₹149</p>
+                    <p class="details">The ultimate refreshing ritual in a display-worthy vessel.</p>
+                    <div class="card-btns">
+                        <a href="oral.html" class="btn-card secondary">Learn More</a>
+                        <a href="https://wa.me/919219791970" class="btn-card primary">Order</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- After Drink -->
+            <div class="elite-product-card afterdrink magnetic-card reveal">
+                <div class="card-image-wrap">
+                    <img src="photos/adepm.png" alt="After Drink Elaichi">
+                </div>
+                <div class="card-info">
+                    <h3 class="gold-text">After Drink: Elaichi</h3>
                     <p class="price">₹200</p>
-                    <p class="details">Pure mint freshness for social confidence anytime, anywhere.</p>
-                    <a href="https://wa.me/919219791970" class="buy-btn btn">Order Now</a>
+                    <p class="details">Precision formula to neutralize strong mouth odours instantly.</p>
+                    <div class="card-btns">
+                        <a href="https://wa.me/919219791970" class="btn-card primary">Order Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="elite-product-card afterdrink magnetic-card reveal">
+                <div class="card-image-wrap">
+                    <img src="photos/ADMBP1.png" alt="After Drink Mint">
+                </div>
+                <div class="card-info">
+                    <h3 class="gold-text">After Drink: Pure Mint</h3>
+                    <p class="price">₹200</p>
+                    <p class="details">Social confidence re-engineered through crystalline mint freshness.</p>
+                    <div class="card-btns">
+                        <a href="https://wa.me/919219791970" class="btn-card primary">Order Now</a>
+                    </div>
                 </div>
             </div>
 
         </div>
-    </section>
+    </main>
 
     <footer class="main-footer">
         <div class="container footer-grid">
@@ -185,96 +243,119 @@
                 <p class="brand-description">Precision Science. Natural Elegance. The future of oral hygiene crafted for
                     those who choose smarter, modern care.</p>
             </div>
-
-            <div class="footer-info footer-column">
-                <h4>Our Headquarters</h4>
-                <ul class="footer-contact-list">
-                    <li>
-                        <span class="icon">📍</span>
-                        <div class="text">
-                            KHASRA No. 655, Opp Murgi Form,<br>
-                            Agra-Delhi Highway NH-2, <br>
-                            ARTHONI, AGRA U.P. 282002
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div id="contacts" class="footer-contact footer-column">
-                <h4>Support</h4>
-                <ul class="footer-contact-list">
-                    <li>
-                        <span class="icon">📞</span>
-                        <div class="text">
-                            <strong>Help Lines:</strong><br>
-                            +91 92197 91970<br>
-                            +91 88817 49444
-                        </div>
-                    </li>
-                    <li>
-                        <span class="icon">📧</span>
-                        <div class="text"><a href="mailto:care@laserten.com">care@laserten.com</a></div>
-                    </li>
-                    <li>
-                        <span class="icon">🌐</span>
-                        <div class="text"><a href="http://www.laserten.com" target="_blank">www.laserten.com</a></div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="footer-links footer-column">
-                <h4>Navigation</h4>
-                <ul class="footer-nav">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="products.html">Our Products</a></li>
-                    <li><a href="oral.html">Shop Oral Care</a></li>
-                </ul>
-            </div>
+            <!-- ... rest of footer ... -->
         </div>
-
         <div class="footer-bottom">
-            <div class="container bottom-flex">
-                <p>&copy; 2025 LaserTen | A Unit of MKR FOOD PRODUCTS. All rights reserved.</p>
-                <div class="legal-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
-            </div>
+            <p>&copy; 2025 LaserTen | A Unit of MKR FOOD PRODUCTS. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- MASTERPIECE SCRIPTS -->
     <script>
-        function filterCategory(category) {
-            const cards = document.querySelectorAll('.product-card');
-            const btns = document.querySelectorAll('.filter-btn');
+        // Elite Loader
+        window.addEventListener('load', () => {
+            const loader = document.querySelector('.masterpiece-loader');
+            setTimeout(() => {
+                loader.classList.add('fade-out');
+            }, 1800);
+        });
+
+        // Mouse Parallax
+        document.addEventListener('mousemove', (e) => {
+            const elements = document.querySelectorAll('.parallax-element');
+            const x = (window.innerWidth - e.pageX * 2) / 100;
+            const y = (window.innerHeight - e.pageY * 2) / 100;
+
+            elements.forEach(el => {
+                const depth = el.getAttribute('data-depth');
+                el.style.transform = `translate(${x * depth}px, ${y * depth}px)`;
+            });
+        });
+
+        // Magnetic Cards
+        document.querySelectorAll('.magnetic-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+
+                const xCenter = rect.width / 2;
+                const yCenter = rect.height / 2;
+                card.style.transform = `perspective(1000px) rotateX(${(y - yCenter) / 15}deg) rotateY(${(xCenter - x) / 15}deg) translateY(-10px) scale(1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+            });
+        });
+
+        // Masterpiece Particle Background
+        const canvas = document.getElementById('collection-particle-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = 400; // Match hero height roughly
+
+        let particles = [];
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.speedX = Math.random() * 0.4 - 0.2;
+                this.speedY = Math.random() * 0.4 - 0.2;
+            }
+            update() {
+                this.x += this.speedX; this.y += this.speedY;
+                if (this.x > canvas.width) this.x = 0; if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0; if (this.y < 0) this.y = canvas.height;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(197, 160, 89, 0.2)';
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
+            }
+        }
+        function init() { for (let i = 0; i < 40; i++) particles.push(new Particle()); }
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(animate);
+        }
+        init(); animate();
+
+        // Staggered Filtering
+        function filterElite(category, event) {
+            const cards = document.querySelectorAll('.elite-product-card');
+            const btns = document.querySelectorAll('.filter-luxury-btn');
+
             btns.forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
 
-            cards.forEach(card => {
-                if (category === 'all' || card.classList.contains(category)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px) scale(0.95)';
+
+                setTimeout(() => {
+                    if (category === 'all' || card.classList.contains(category)) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0) scale(1)';
+                        }, index * 30); // Dynamic stagger
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }, 300);
             });
         }
 
-        function changeImg(imgTag, mainId) {
-            document.getElementById(mainId).src = imgTag.src;
-        }
+        // Reveal Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
-    <div class="mobile-menu-overlay">
-        <ul class="mobile-nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="oral.html">Oral Care</a></li>
-            <li><a href="distributors.html">Distributors</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </div>
-    <script src="script.js"></script>
 </body>
 
 </html>

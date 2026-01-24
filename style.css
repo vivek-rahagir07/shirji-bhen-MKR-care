@@ -4547,3 +4547,786 @@ textarea.form-control {
     margin-left: auto;
     margin-right: auto;
 }
+/* --- Laser 10 Massage Oil Specific Styles --- */
+.where-to-apply, .actions-section, .how-to-use, .why-choose-section, .safety-info {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.apply-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.apply-item {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 2rem;
+    border-radius: 20px;
+    transition: var(--transition);
+    cursor: default;
+}
+
+.apply-item:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+    box-shadow: var(--gold-glow);
+}
+
+.apply-item span {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-main);
+}
+
+.apply-footer {
+    margin-top: 3rem;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.action-card {
+    background: var(--primary);
+    color: var(--white);
+    padding: 2.5rem;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-mid);
+    text-align: left;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.action-card:hover {
+    transform: scale(1.03);
+    border-color: var(--gold);
+}
+
+.action-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--gold);
+    opacity: 0.2;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-weight: 700;
+}
+
+.action-card p {
+    position: relative;
+    z-index: 2;
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+.usage-steps {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.step {
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.step-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.usage-warning {
+    margin-top: 4rem;
+    color: #ff4d4d;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+    text-align: left;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.why-item {
+    font-weight: 500;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.safety-list {
+    list-style: none;
+    max-width: 600px;
+    margin: 3rem auto 0;
+    text-align: left;
+}
+
+.safety-list li {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--glass-border);
+    position: relative;
+    padding-left: 2rem;
+}
+
+.safety-list li::before {
+    content: '⚠';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+}
+
+.ingredient-list {
+    font-size: 1.2rem;
+    line-height: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ingredient-list span {
+    color: var(--gold);
+    margin: 0 10px;
+}
+
+/* --- Luxury Massage Oil Overhaul --- */
+.luxury-oil-page {
+    background-color: #0D051A;
+    color: var(--white);
+}
+
+.oil-hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #1A0B2E 0%, #0D051A 100%);
+}
+
+.oil-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('photos/luxury_oil_premium.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4;
+    filter: blur(5px);
+    transform: scale(1.1);
+    animation: slowZoom 20s infinite alternate linear;
+}
+
+@keyframes slowZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.15); }
+}
+
+.oil-hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 900px;
+}
+
+.oil-hero h1 {
+    font-size: 5rem;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+}
+
+.oil-hero .line-1 { font-family: 'Playfair Display', serif; font-weight: 700; }
+.oil-hero .line-2 { font-style: italic; }
+
+.oil-motto {
+    font-size: 1.5rem;
+    color: var(--gold-luminous);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Interactive Body Map --- */
+.body-map-section {
+    padding: 100px 0;
+    background: #0D051A;
+}
+
+.body-map-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 4rem;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.body-visual {
+    position: relative;
+    width: 400px;
+    height: 600px;
+    background: url('photos/human_silhouette.png') no-repeat center;
+    background-size: contain;
+    opacity: 0.3;
+}
+
+.hotspot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--gold);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 15px var(--gold);
+    animation: pulseGold 2s infinite;
+}
+
+@keyframes pulseGold {
+    0% { transform: scale(1); box-shadow: 0 0 5px var(--gold); }
+    50% { transform: scale(1.5); box-shadow: 0 0 20px var(--gold); }
+    100% { transform: scale(1); box-shadow: 0 0 5px var(--gold); }
+}
+
+.hotspot-label {
+    position: absolute;
+    white-space: nowrap;
+    background: rgba(197, 160, 89, 0.9);
+    color: #0D051A;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.hotspot:hover .hotspot-label {
+    opacity: 1;
+    transform: translateY(-30px);
+}
+
+/* --- Luxury Virtues Grid --- */
+.virtues-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 4rem 10%;
+}
+
+.virtue-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 3rem;
+    border-radius: 30px;
+    transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.virtue-card:hover {
+    background: rgba(197, 160, 89, 0.1);
+    border-color: var(--gold);
+    transform: translateY(-15px) scale(1.02);
+}
+
+.virtue-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.05;
+    position: absolute;
+    bottom: -20px;
+    right: -10px;
+    line-height: 1;
+}
+
+.virtue-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--gold-bright);
+}
+
+.virtue-card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+/* --- Alchemical Ingredients --- */
+.alchemy-section {
+    padding: 120px 0;
+    background: radial-gradient(circle at top, #1A0B2E 0%, #0D051A 100%);
+}
+
+.alchemy-list {
+    display: flex;
+    overflow-x: auto;
+    gap: 3rem;
+    padding: 4rem 5%;
+    scrollbar-width: none;
+}
+
+.alchemy-list::-webkit-scrollbar { display: none; }
+
+.alchemy-item {
+    min-width: 250px;
+    text-align: center;
+}
+
+.alchemy-icon {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    background: rgba(197, 160, 89, 0.05);
+    transition: 0.5s;
+}
+
+.alchemy-item:hover .alchemy-icon {
+    background: var(--gold);
+    color: #0D051A;
+    transform: rotate(360deg) scale(1.1);
+    box-shadow: 0 0 30px var(--gold);
+}
+
+.alchemy-item h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(-- gold-luminous);
+}
+
+@media (max-width: 768px) {
+    .oil-hero h1 { font-size: 3.5rem; }
+    .virtue-card { padding: 2rem; }
+}
+
+/* --- Masterpiece Elite UI/UX Styles --- */
+.masterpiece-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0D051A;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1s ease, visibility 1s;
+}
+
+.masterpiece-loader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-logo {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    animation: glowText 2s infinite alternate;
+}
+
+.loader-bar-container {
+    width: 200px;
+    height: 2px;
+    background: rgba(197, 160, 89, 0.1);
+    margin: 0 auto 1.5rem;
+    overflow: hidden;
+}
+
+.loader-bar {
+    width: 0;
+    height: 100%;
+    background: var(--gold);
+    animation: loadProgress 2s ease forwards;
+}
+
+@keyframes loadProgress {
+    to { width: 100%; }
+}
+
+@keyframes glowText {
+    from { text-shadow: 0 0 10px rgba(197, 160, 89, 0.2); }
+    to { text-shadow: 0 0 30px rgba(197, 160, 89, 0.6); }
+}
+
+#particle-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Masterpiece Hero Parallax Support */
+.parallax-element {
+    transition: transform 0.1s ease-out;
+}
+
+/* Magnetic Card Effects */
+.magnetic-card {
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out, background 0.3s;
+}
+
+.magnetic-card::before {
+    content: '';
+    position: absolute;
+    top: var(--mouse-y, 0px);
+    left: var(--mouse-x, 0px);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(197, 160, 89, 0.15) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Body Map Revamp */
+.body-map-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    margin-top: 60px;
+}
+
+.body-visual-master {
+    position: relative;
+    width: 450px;
+    height: 650px;
+    background: radial-gradient(circle, rgba(197, 160, 89, 0.05) 0%, transparent 80%);
+    border: 1px solid rgba(197, 160, 89, 0.1);
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.body-visual-master::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('photos/human_silhouette.png') no-repeat center;
+    background-size: contain;
+    opacity: 0.15;
+    filter: brightness(1.5);
+}
+
+.masterpiece-hotspot {
+    z-index: 20;
+    transition: 0.3s;
+}
+
+.masterpiece-hotspot:hover {
+    transform: scale(2);
+    background: var(--gold-bright);
+}
+
+.detail-panel {
+    width: 350px;
+    height: 350px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 30px;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    opacity: 0.5;
+    transform: translateX(50px);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.detail-panel.active {
+    opacity: 1;
+    transform: translateX(0);
+    border-color: var(--gold);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.panel-icon {
+    font-size: 3rem;
+    margin-top: 2rem;
+    opacity: 0.3;
+}
+
+#panel-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+#panel-desc {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+/* Tutoring: Tooltip Fallback for Mobile */
+@media (max-width: 992px) {
+    .body-map-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .detail-panel {
+        width: 100%;
+    }
+}
+
+/* --- Luxury Products Collection Styles --- */
+.collection-page {
+    background: #0D051A;
+    color: var(--white);
+}
+
+.collection-hero {
+    padding: 180px 0 100px;
+    text-align: center;
+    background: radial-gradient(circle at top, #1A0B2E 0%, #0D051A 100%);
+}
+
+.collection-hero h1 {
+    font-size: 4.5rem;
+    margin-bottom: 1rem;
+}
+
+.filter-luxury-bar {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 3rem 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.filter-luxury-btn {
+    background: none;
+    border: none;
+    color: var(--white);
+    padding: 0.8rem 2rem;
+    border-radius: 40px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    opacity: 0.6;
+}
+
+.filter-luxury-btn.active {
+    background: var(--gold-gradient);
+    color: #0D051A;
+    opacity: 1;
+    box-shadow: 0 10px 25px rgba(197, 160, 89, 0.3);
+}
+
+.elite-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 3rem;
+    padding: 4rem 10%;
+}
+
+.elite-product-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 30px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.elite-product-card:hover {
+    transform: translateY(-15px);
+    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--gold);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.card-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--gold-gradient);
+    color: #0D051A;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.card-image-wrap {
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    position: relative;
+    transition: transform 0.4s ease;
+}
+
+.elite-product-card:hover .card-image-wrap {
+    transform: scale(1.1);
+}
+
+.card-image-wrap img {
+    max-height: 100%;
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.4));
+}
+
+.card-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: var(-- gold-bright);
+}
+
+.card-info .price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+}
+
+.card-info .details {
+    opacity: 0.7;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    min-height: 3rem;
+}
+
+.card-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.elite-product-card:hover .card-btns {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn-card {
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.btn-card.primary { background: var(--gold); color: #0D051A; }
+.btn-card.secondary { border: 1px solid var(--gold); color: var(--gold); }
+
+.btn-card:hover { transform: scale(1.05); }
+
+@media (max-width: 768px) {
+    .collection-hero h1 { font-size: 3rem; }
+    .elite-grid { padding: 4rem 1.5rem; }
+}
+
+/* --- Masterpiece Products Enhancement --- */
+.masterpiece-hero-wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+#collection-particle-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.elite-product-card.magnetic-card {
+    will-change: transform;
+    transform-style: preserve-3d;
+}
+
+.elite-product-card.magnetic-card::after {
+    content: '';
+    position: absolute;
+    top: var(--mouse-y, 0px);
+    left: var(--mouse-x, 0px);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(197, 160, 89, 0.1) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Pulsing Filter Button Tutoring */
+.filter-luxury-btn.active {
+    animation: goldPulseBtn 2s infinite;
+}
+
+@keyframes goldPulseBtn {
+    0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(197, 160, 89, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
+}
