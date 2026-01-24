@@ -5059,66 +5059,6 @@ textarea.form-control {
     }
 }
 
-/* --- Masterpiece Elite UI/UX Styles --- */
-.masterpiece-loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #0D051A;
-    z-index: 10000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 1s ease, visibility 1s;
-}
-
-.masterpiece-loader.fade-out {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.loader-content {
-    text-align: center;
-}
-
-.loader-logo {
-    font-size: 4rem;
-    margin-bottom: 2rem;
-    animation: glowText 2s infinite alternate;
-}
-
-.loader-bar-container {
-    width: 200px;
-    height: 2px;
-    background: rgba(197, 160, 89, 0.1);
-    margin: 0 auto 1.5rem;
-    overflow: hidden;
-}
-
-.loader-bar {
-    width: 0;
-    height: 100%;
-    background: var(--gold);
-    animation: loadProgress 2s ease forwards;
-}
-
-@keyframes loadProgress {
-    to {
-        width: 100%;
-    }
-}
-
-@keyframes glowText {
-    from {
-        text-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
-    }
-
-    to {
-        text-shadow: 0 0 30px rgba(197, 160, 89, 0.6);
-    }
-}
 
 #particle-canvas {
     position: absolute;
