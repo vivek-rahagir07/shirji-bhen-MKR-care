@@ -14,6 +14,34 @@
 
 <body>
 
+    <div class="aura-container">
+        <div class="aura-blob aura-blob-1"></div>
+        <div class="aura-blob aura-blob-2"></div>
+        <div class="aura-blob aura-blob-3"></div>
+        <div class="glass-particle" style="width: 50px; height: 50px; left: 10%; animation-delay: 1s;"></div>
+        <div class="glass-particle" style="width: 80px; height: 80px; left: 80%; animation-delay: 5s;"></div>
+        <div class="glass-particle" style="width: 30px; height: 30px; left: 40%; animation-delay: 10s;"></div>
+
+        <div class="water-bubbles-container">
+            <div class="water-bubble bubble-burst"
+                style="width: 40px; height: 40px; left: 10%; animation-delay: 2s; animation-duration: 9s;"></div>
+            <div class="water-bubble"
+                style="width: 60px; height: 60px; left: 25%; animation-delay: 0s; animation-duration: 18s;"></div>
+            <div class="water-bubble bubble-burst"
+                style="width: 30px; height: 30px; left: 45%; animation-delay: 5s; animation-duration: 11s;"></div>
+            <div class="water-bubble"
+                style="width: 50px; height: 50px; left: 65%; animation-delay: 1s; animation-duration: 20s;"></div>
+            <div class="water-bubble bubble-burst"
+                style="width: 35px; height: 35px; left: 85%; animation-delay: 8s; animation-duration: 12s;"></div>
+            <div class="water-bubble"
+                style="width: 45px; height: 45px; left: 15%; animation-delay: 12s; animation-duration: 16s;"></div>
+            <div class="water-bubble"
+                style="width: 25px; height: 25px; left: 75%; animation-delay: 4s; animation-duration: 10s;"></div>
+            <div class="water-bubble"
+                style="width: 55px; height: 55px; left: 55%; animation-delay: 15s; animation-duration: 22s;"></div>
+        </div>
+    </div>
+
     <nav class="navbar">
         <div class="logo">Laserten</div>
         <ul class="uppertab">
@@ -41,14 +69,15 @@
     <header class="hero-large hero">
         <div class="hero-bg atmospheric"></div>
         <div class="hero-overlay"></div>
-        <div class="hero-container">
-            <div class="hero-content reveal">
+        <div class="hero-container hero-centered">
+            <div class="hero-content reveal text-center">
                 <p class="hero-subtitle shimmer-text">Comprehensive Oral Education</p>
-                <h1><span class="line-1 gold-text">The Science of a</span><br><span class="line-2">Perfect Smile.</span>
+                <h1><span class="line-1 gold-text">The Science of a</span><br><span
+                        class="line-2 text-white-shadow">Perfect Smile.</span>
                 </h1>
-            </div>
-            <div class="hero-image-container">
-                <img src="photos/luxury_mouthwash.png" alt="LaserTen Luxury Bottle" class="hero-image">
+                <p class="hero-description reveal text-white-shadow">Beyond aesthetics, oral health is the gateway to
+                    systemic wellness.
+                    Explore the biological mechanics that define a healthy mouth.</p>
             </div>
         </div>
     </header>
@@ -70,40 +99,58 @@
 
             <section id="microbiome" class="reveal">
                 <h2 class="gold-text">1. The Oral Microbiome</h2>
-                <p>The human mouth is an intricate ecosystem. Every surface—the teeth, the tongue, the cheeks—is covered
-                    in a biological film. When we talk about "oral care," we are actually talking about
-                    <strong>Microbiome Management</strong>. Not all bacteria are bad; however, when we consume
-                    high-carbohydrate diets, we select for "acidogenic" bacteria...
-                </p>
-                <p><em>[Insert 400 words here regarding Biofilm maturation and bacterial colonization...]</em></p>
+                <p>The human mouth is an intricate ecosystem, second only to the gut in microbial diversity. Every
+                    surface—the teeth, the tongue, the cheeks—is covered in a biological film. When we talk about "oral
+                    care," we are actually talking about <strong>Microbiome Management</strong>.</p>
+                <div class="content-visual reveal">
+                    <img src="photos/biofilm_microbiome.png" alt="Dental Biofilm Development" class="content-img">
+                    <p class="caption">Figure 1.1: The maturation of dental biofilm from beneficial commensal bacteria
+                        to pathogenic clusters.</p>
+                </div>
+                <p>Not all bacteria are bad. In a healthy mouth, "commensal" bacteria work in harmony with your immune
+                    system to prevent infection. However, when we consume high-carbohydrate diets or experience
+                    prolonged dry mouth, we select for "acidogenic" bacteria like <em>Streptococcus mutans</em>. These
+                    bacteria thrive in acidic environments and are the primary drivers of tooth decay.</p>
+                <p>Biofilm maturation is a 24-hour cycle. Within hours of brushing, a protein layer called the
+                    "pellicle" forms, allowing early colonizers to attach. If left undisturbed, these form complex
+                    towers of bacteria that eventually become resistant to simple rinsing—this is why mechanical
+                    brushing is non-negotiable.</p>
             </section>
-
-
-
-            [Image of dental biofilm development stages]
-
 
             <section id="gums" class="reveal">
                 <h2 class="gold-text">2. Gum Disease: The Silent Destroyer</h2>
                 <p>Periodontal disease is often called a "silent" disease because it rarely causes pain until the final
-                    stages. It begins with <strong>Gingivitis</strong>, an inflammatory response to plaque. If the
-                    body's immune system cannot clear the bacteria, it begins to destroy its own bone to "get away" from
-                    the infection...</p>
+                    stages. It begins with <strong>Gingivitis</strong>, an inflammatory response to plaque accumulation
+                    at the gum line. If the body's immune system cannot clear the bacteria, the inflammation becomes
+                    chronic, leading to <strong>Periodontitis</strong>.</p>
                 <div class="highlight-box gold-border">
-                    <h4 class="gold-text">The Systemic Link</h4>
-                    <p>Recent studies in 2025 confirm that P. gingivalis (a key gum bacteria) can cross the blood-brain
-                        barrier, potentially linking oral health to cognitive decline and heart health.</p>
+                    <div class="highlight-content">
+                        <div class="highlight-text">
+                            <h4 class="gold-text">The Systemic Link</h4>
+                            <p>Recent studies in 2025 confirm that <em>P. gingivalis</em> (a key gum pathogen) can cross
+                                the blood-brain barrier. Chronic oral inflammation is now linked to increased risks of
+                                cardiovascular disease, diabetes complications, and even cognitive decline.</p>
+                        </div>
+                        <img src="photos/systemic_link.png" alt="Systemic Link Illustration" class="highlight-img">
+                    </div>
                 </div>
-                <p><em>[Insert 500 words here on Chronic Periodontitis, Scaling and Root Planing, and Gum
-                        Grafting...]</em></p>
+                <p>In periodontitis, the "pockets" between the tooth and gum deepen. The body's immune cells, in an
+                    attempt to fight the infection, release enzymes that inadvertently destroy the bone supporting the
+                    teeth. This process is irreversible without professional intervention like Scaling and Root Planing
+                    (SRP) or specialized laser therapy.</p>
             </section>
 
             <section id="cavities" class="reveal">
                 <h2 class="gold-text">3. The Chemistry of Cavities</h2>
-                <p>Cavities are not just "holes." They are the result of a chemical imbalance. Your teeth are constantly
-                    in a state of <strong>Demineralization and Remineralization</strong>. When the pH in your mouth
-                    drops below 5.5, the minerals literally dissolve into your saliva...</p>
-                <p><em>[Insert 500 words here on Enamel structure, Dentin sensitivity, and Root Caries...]</em></p>
+                <p>Cavities are not just "holes." They are the result of a continuous chemical tug-of-war. Your teeth
+                    are constantly in a state of <strong>Demineralization and Remineralization</strong>.</p>
+                <p>Every time you eat, the pH in your mouth drops. When it falls below the "critical pH" of 5.5, the
+                    hydroxyapatite crystals that make up your enamel begin to dissolve into your saliva. This is
+                    demineralization. Fortunately, your saliva is rich in calcium and phosphate, which can flow back
+                    into the tooth surface once the pH rises above 5.5—this is remineralization.</p>
+                <p>The problem arises when the "acid attacks" are too frequent or the minerals available in saliva are
+                    insufficient. Over time, the microscopic dissolution of enamel leads to a structural collapse—a
+                    cavity.</p>
             </section>
 
             <section id="prevention" class="dark-section reveal">
@@ -112,31 +159,74 @@
                     <div class="point">
                         <h3>01. Mechanical Removal</h3>
                         <p>Brushing and flossing remain the gold standard. Electric toothbrushes with pressure sensors
-                            are recommended to avoid "Abrasion."</p>
+                            are recommended to avoid "Abrasion" and gum recession.</p>
                     </div>
                     <div class="point">
                         <h3>02. Chemical Assistance</h3>
-                        <p>Fluoride and Nano-hydroxyapatite toothpastes help "plug" the microscopic holes in your enamel
-                            before they become cavities.</p>
+                        <p>Nano-hydroxyapatite and fluoride toothpastes help "plug" the microscopic holes in your enamel
+                            before they become full-blown cavities.</p>
                     </div>
                     <div class="point">
                         <h3>03. Salivary Stimulation</h3>
-                        <p>Dry mouth (Xerostomia) is a leading cause of tooth loss. Chewing xylitol gum can increase
-                            saliva flow by 10x.</p>
+                        <p>Dry mouth (Xerostomia) is a leading cause of tooth loss. Chewing xylitol-based products can
+                            increase saliva flow by up to 10x, neutralizing acids naturally.</p>
                     </div>
                     <div class="point">
                         <h3>04. pH Neutralization</h3>
-                        <p>Rinsing with water after eating acidic foods helps return the mouth to a neutral pH of 7.0
-                            much faster.</p>
+                        <p>Rinsing with water or an alkaline mouthwash after eating acidic foods helps return the mouth
+                            to a neutral pH of 7.0 much faster.</p>
                     </div>
                     <div class="point">
                         <h3>05. Professional Intervention</h3>
-                        <p>Professional cleanings remove tartar that is physically impossible to remove at home.</p>
+                        <p>Regular cleanings remove "tartar" (calcified plaque) that is physically impossible to remove
+                            with a toothbrush once it has matured.</p>
                     </div>
                     <div class="point">
                         <h3>06. Microbiome Seeding</h3>
-                        <p>Oral probiotics are an emerging trend in 2025, helping to crowd out bad bacteria with
-                            beneficial strains.</p>
+                        <p>Oral probiotics are an emerging trend, helping to "crowd out" pathogenic bacteria with
+                            beneficial strains like <em>S. salivarius</em> K12.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="nutrition" class="reveal">
+                <h2 class="gold-text">5. Nutrition & Lifestyle</h2>
+                <div class="nutrition-layout">
+                    <div class="nutrition-text">
+                        <p>What you eat is just as important as how you brush. A diet high in Vitamin C supports gum
+                            tissue health, while Calcium and Vitamin D are essential for maintaining bone density around
+                            tooth sockets.</p>
+                        <ul>
+                            <li><strong>Limit "Snacking Frequency":</strong> Every snack is an acid attack. Constant
+                                grazing prevents remineralization.</li>
+                            <li><strong>Hydration:</strong> Water is the primary component of saliva. Low hydration
+                                leads to low pH.</li>
+                            <li><strong>The "Apple" Effect:</strong> Fibrous fruits can help mechanically scrub tooth
+                                surfaces, though they are not a replacement for brushing.</li>
+                        </ul>
+                    </div>
+                    <img src="photos/nutrition_lifestyle.png" alt="Healthy Lifestyle for Oral Care"
+                        class="nutrition-img">
+                </div>
+            </section>
+
+            <section id="faq" class="reveal">
+                <h2 class="gold-text">6. Advanced FAQ</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <h4 class="gold-text">Should I use mouthwash before or after brushing?</h4>
+                        <p>If your mouthwash contains fluoride or N-Ha, using it <em>after</em> brushing and not rinsing
+                            with water afterwards allows the minerals to sit on the teeth for longer.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="gold-text">Is alcohol-based mouthwash bad?</h4>
+                        <p>Alcohol is a desiccant (it dries things out). Long-term use of high-alcohol rinses can lead
+                            to dry mouth, which ironically increases the risk of cavities and bad breath.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="gold-text">Why do my teeth feel sensitive after whitening?</h4>
+                        <p>Whitening agents open the "dentinal tubules"—microscopic pores in your teeth. Using LaserTen
+                            products can help occlude (plug) these pores to reduce sensitivity.</p>
                     </div>
                 </div>
             </section>

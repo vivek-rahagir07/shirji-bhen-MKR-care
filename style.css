@@ -28,6 +28,7 @@
     --transition-slow: all 1.2s cubic-bezier(0.23, 1, 0.32, 1);
     --transition-mid: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    --shadow-hover: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
 
 * {
@@ -63,7 +64,7 @@ h3,
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 4rem;
+    padding: 1.5rem 6%;
     background: rgba(10, 10, 10, 0.15);
     /* Very subtle tint */
     backdrop-filter: blur(25px);
@@ -75,7 +76,7 @@ h3,
 
 .navbar.scrolled {
     background: rgba(10, 10, 10, 0.8);
-    padding: 1rem 4rem;
+    padding: 1.2rem 6%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -150,6 +151,7 @@ h3,
 
 /* --- Dropdown Logic --- */
 .nav-dropdown {
+    position: relative;
     cursor: pointer;
 }
 
@@ -157,38 +159,55 @@ h3,
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
     background: var(--white);
-    min-width: 200px;
-    padding: 1rem 0;
-    border-radius: 12px;
+    min-width: 220px;
+    padding: 1.5rem 0;
+    border-radius: 16px;
     box-shadow: var(--shadow-hover);
     border: 1px solid var(--glass-border);
     list-style: none;
-    margin-top: 10px;
+    margin-top: 15px;
     opacity: 0;
-    transform: translateY(10px);
-    transition: var(--transition);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     z-index: 2001;
+    pointer-events: none;
 }
 
 .nav-dropdown:hover .dropdown-menu {
     display: block;
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.dropdown-menu li {
+    margin: 0 !important;
 }
 
 .dropdown-menu li a {
-    padding: 0.7rem 1.5rem !important;
+    padding: 0.8rem 2rem !important;
     font-size: 0.9rem !important;
-    color: var(--text-muted) !important;
+    color: var(--text-main) !important;
     display: block;
-    border-bottom: none !important;
+    transition: all 0.3s ease;
 }
 
 .dropdown-menu li a:hover {
     background: var(--bg-light) !important;
     color: var(--primary) !important;
+    padding-left: 2.5rem !important;
+}
+
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background: transparent;
 }
 
 /* --- Advanced Animations & Utilities --- */
@@ -3514,6 +3533,7 @@ textarea.form-control {
     letter-spacing: 4px;
     background: var(--gold-gradient);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 2rem;
     text-transform: uppercase;
@@ -3552,4 +3572,176 @@ textarea.form-control {
     background: rgba(13, 5, 26, 0.85);
     border: 1px solid var(--gold);
     box-shadow: 0 0 50px rgba(197, 160, 89, 0.3);
+}
+
+/* --- Oral Care Educational Styles --- */
+.content-visual {
+    margin: 3rem auto;
+    max-width: 800px;
+    text-align: center;
+    background: rgba(26, 11, 46, 0.4);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+}
+
+.content-img {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1.5rem;
+}
+
+.caption {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.highlight-box {
+    margin: 3rem 0;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(13, 5, 26, 0.6) 0%, rgba(26, 11, 46, 0.4) 100%);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.highlight-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.highlight-text {
+    flex: 1;
+}
+
+.highlight-img {
+    flex: 0.6;
+    max-width: 280px;
+    border-radius: 16px;
+    filter: drop-shadow(0 0 20px rgba(197, 160, 89, 0.2));
+}
+
+.nutrition-layout {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin-top: 2rem;
+}
+
+.nutrition-text {
+    flex: 1.2;
+}
+
+.nutrition-text ul {
+    margin-top: 1.5rem;
+    list-style: none;
+}
+
+.nutrition-text li {
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.nutrition-text li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+}
+
+.nutrition-img {
+    flex: 0.7;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 24px;
+    box-shadow: var(--shadow-hover);
+}
+
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.faq-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    transition: var(--transition);
+}
+
+.faq-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(10px);
+    border-color: var(--gold);
+}
+
+.faq-item h4 {
+    margin-bottom: 1rem;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 500px;
+}
+
+@media (max-width: 992px) {
+
+    .highlight-content,
+    .nutrition-layout {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .highlight-img,
+    .nutrition-img {
+        max-width: 100%;
+    }
+}
+
+/* --- Hero Centering and Polish --- */
+.hero-centered {
+    justify-content: center !important;
+    text-align: center;
+}
+
+.text-center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-content.text-center {
+    max-width: 800px;
+}
+
+/* --- Oral Visual Polish --- */
+.text-white-shadow {
+    color: var(--white) !important;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.hero-large {
+    height: 100vh;
+}
+
+/* --- Purple Hero Overlay Refinement --- */
+.hero.about-hero .hero-overlay,
+.hero.background-purple .hero-overlay {
+    background: radial-gradient(circle at center, rgba(26, 11, 46, 0.4) 0%, rgba(26, 11, 46, 0.8) 100%);
+}
+
+.background-purple {
+    background-color: #1A0B2E !important;
 }
