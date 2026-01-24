@@ -71,7 +71,7 @@ h3,
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 5%;
+    padding: 1.2rem 5%;
     background: rgba(10, 10, 10, 0.15);
     /* Very subtle tint */
     backdrop-filter: blur(25px);
