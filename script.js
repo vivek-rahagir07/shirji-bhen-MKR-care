@@ -391,10 +391,42 @@ document.addEventListener('DOMContentLoaded', () => {
         }());
     };
 
+    window.typeBirthdayTagline = () => {
+        const text = "our journey of INNOVATION ,QUALITY AND CUSTOMER TRUST";
+        const el = document.getElementById('birthdayTypewriter');
+        if (!el) return;
+        
+        el.innerText = "";
+        let i = 0;
+        
+        const type = () => {
+            if (i < text.length) {
+                el.innerText += text.charAt(i);
+                i++;
+                setTimeout(type, 60); // Type speed
+            }
+        };
+        type();
+    };
+
     window.triggerAboutCelebration = (e) => {
         if (e) e.preventDefault();
         createConfetti();
-        // Removed modal logic as per user request to just have celebration
+        
+        // Show modal after a brief burst delay
+        setTimeout(() => {
+            const modal = document.getElementById('brandModal');
+            if (modal) {
+                modal.classList.add('active');
+                // Trigger typewriter
+                setTimeout(window.typeBirthdayTagline, 300);
+            }
+        }, 500);
+    };
+
+    window.closeAboutModal = () => {
+        const modal = document.getElementById('brandModal');
+        if (modal) modal.classList.remove('active');
     };
 
     // Attach to About links if we are on the page
@@ -408,17 +440,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Auto-Trigger on About Page Load ---
     if (window.location.pathname.includes('about.html')) {
-        // Check if confetti is loaded
-        const checkConfetti = setInterval(() => {
+        // Delay slightly for visual impact after entrance animations
+        setTimeout(() => {
             if (typeof confetti === 'function') {
-                clearInterval(checkConfetti);
+                createConfetti();
                 setTimeout(() => {
-                    createConfetti();
-                }, 800);
+                    const modal = document.getElementById('brandModal');
+                    if (modal) {
+                        modal.classList.add('active');
+                        setTimeout(window.typeBirthdayTagline, 300);
+                    }
+                }, 500);
+            } else if (window.createConfetti) {
+                 // Fallback if custom CSS confetti is used
+                 window.createConfetti();
+                 setTimeout(() => {
+                    const modal = document.getElementById('brandModal');
+                    if (modal) {
+                        modal.classList.add('active');
+                        setTimeout(window.typeBirthdayTagline, 300);
+                    }
+                }, 500);
             }
-        }, 100);
-
-        // Safety clear after 5s
-        setTimeout(() => clearInterval(checkConfetti), 5000);
+        }, 800);
     }
 });

@@ -314,6 +314,12 @@ h3,
     color: transparent !important;
 }
 
+.text-white-shadow {
+    color: var(--white) !important;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    display: inline-block;
+}
+
 .gold-glow {
     box-shadow: var(--gold-glow);
 }
@@ -3499,4 +3505,51 @@ textarea.form-control {
 
 .slope-divider-reverse {
     clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+}
+
+/* --- Birthday Style Specifics --- */
+.established-text {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    letter-spacing: 4px;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.typewriter-container {
+    min-height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.birthday-tagline {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.4rem;
+    color: var(--white);
+    border-right: 2px solid var(--gold);
+    padding-right: 5px;
+    white-space: pre-wrap;
+    animation: blinkCursor 0.75s step-end infinite;
+}
+
+@keyframes blinkCursor {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: var(--gold);
+    }
+}
+
+.modal-content.birthday-style {
+    background: rgba(13, 5, 26, 0.85);
+    border: 1px solid var(--gold);
+    box-shadow: 0 0 50px rgba(197, 160, 89, 0.3);
 }
