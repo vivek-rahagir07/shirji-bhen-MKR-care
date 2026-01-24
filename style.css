@@ -29,6 +29,7 @@
     --transition-mid: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     --shadow-hover: 0 10px 40px rgba(0, 0, 0, 0.2);
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -530,7 +531,7 @@ h3,
 
 /* --- Water Bubble System --- */
 .water-bubbles-container {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -543,23 +544,64 @@ h3,
 .water-bubble {
     position: absolute;
     bottom: -100px;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(2px);
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 70%);
+    backdrop-filter: blur(1px);
     border-radius: 50%;
-    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.4), 0 0 15px rgba(255, 255, 255, 0.1);
-    animation: bubbleRise 15s infinite ease-in, bubbleSway 4s infinite ease-in-out, bubbleWobble 3s infinite ease-in-out;
+    box-shadow:
+        inset -5px -5px 15px rgba(0, 0, 0, 0.1),
+        inset 5px 5px 15px rgba(255, 255, 255, 0.9),
+        0 0 20px rgba(255, 255, 255, 0.4);
+    animation:
+        bubbleRise 15s infinite ease-in,
+        bubbleSway 4s infinite ease-in-out,
+        bubbleZiggle 2s infinite ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
+/* Secondary 3D Highlight */
+.water-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: 15%;
+    left: 15%;
+    width: 20%;
+    height: 20%;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    filter: blur(2px);
+}
+
+/* Primary 3D Highlight */
 .water-bubble::after {
     content: '';
     position: absolute;
-    top: 20%;
-    right: 20%;
-    width: 25%;
+    top: 10%;
+    right: 15%;
+    width: 35%;
     height: 25%;
-    background: rgba(255, 255, 255, 0.4);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), transparent);
     border-radius: 50%;
-    filter: blur(1px);
+    transform: rotate(-25deg);
+    filter: blur(0.5px);
+}
+
+@keyframes bubbleZiggle {
+
+    0%,
+    100% {
+        transform: scale(1) translateX(0);
+        filter: brightness(1);
+    }
+
+    33% {
+        transform: scale(1.05) translateX(2px);
+        filter: brightness(1.3);
+    }
+
+    66% {
+        transform: scale(0.95) translateX(-2px);
+        filter: brightness(0.9);
+    }
 }
 
 @keyframes bubbleRise {
@@ -2386,9 +2428,11 @@ h3,
 
 .sidebar h3 {
     color: var(--primary);
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--bg-light);
+    margin-bottom: 2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--gold);
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 .sidebar ul {
@@ -2402,8 +2446,37 @@ h3,
 .sidebar ul li a {
     text-decoration: none;
     color: var(--text-muted);
-    transition: var(--transition);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 0.6rem 0;
+    position: relative;
     font-weight: 500;
+}
+
+.sidebar ul li a:hover {
+    color: var(--gold);
+    padding-left: 12px;
+}
+
+.sidebar ul li a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 8px;
+    width: 0;
+    height: 1.5px;
+    background: var(--gold);
+    transition: all 0.3s ease;
+}
+
+.sidebar ul li a:hover::before {
+    width: 20px;
+}
+
+.sidebar ul li a.active {
+    color: var(--gold);
+    font-weight: 600;
 }
 
 .sidebar ul li a:hover {
@@ -2446,15 +2519,31 @@ h3,
 }
 
 .point {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: var(--shadow-soft);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+}
+
+.point:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--gold);
+    box-shadow: var(--gold-glow);
 }
 
 .point h3 {
-    color: var(--primary);
+    color: var(--gold-bright);
     margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.point p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 .tip-pro {
@@ -3744,4 +3833,93 @@ textarea.form-control {
 
 .background-purple {
     background-color: #1A0B2E !important;
+}
+
+/* --- Dark Section Support --- */
+.dark-section {
+    background: linear-gradient(135deg, rgba(26, 11, 46, 0.95) 0%, rgba(13, 5, 26, 0.98) 100%);
+    padding: 5rem 3rem;
+    margin: 4rem 0;
+    border-radius: 32px;
+    border: 1px solid var(--glass-border);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.dark-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 10% 10%, rgba(197, 160, 89, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.dark-section h2 {
+    text-align: center;
+    margin-bottom: 4rem;
+    font-size: 2.5rem;
+}
+
+/* --- Final UI Polish --- */
+.content-area section {
+    margin-bottom: 6rem;
+}
+
+#special-tip {
+    margin-top: 4rem;
+}
+
+.tip-card {
+    padding: 3rem;
+    background: rgba(13, 5, 26, 0.4);
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+}
+/* --- Scroll Progress Bar --- */
+.scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: var(--gold-gradient);
+    z-index: 10000;
+    width: 0%;
+    transition: width 0.1s ease;
+    box-shadow: 0 0 10px rgba(197, 160, 89, 0.5);
+}
+
+/* --- Floating Particles System --- */
+.floating-elements-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+}
+
+.particle {
+    position: absolute;
+    color: var(--gold-bright);
+    opacity: 0.15;
+    animation: particleFloat 20s infinite linear;
+}
+
+@keyframes particleFloat {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.2; }
+    90% { opacity: 0.2; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+/* --- Image Motion Refinement --- */
+.content-img, .highlight-img, .nutrition-img {
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease;
+    will-change: transform;
 }

@@ -395,10 +395,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const text = "our journey of INNOVATION ,QUALITY AND CUSTOMER TRUST";
         const el = document.getElementById('birthdayTypewriter');
         if (!el) return;
-        
+
         el.innerText = "";
         let i = 0;
-        
+
         const type = () => {
             if (i < text.length) {
                 el.innerText += text.charAt(i);
@@ -412,7 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.triggerAboutCelebration = (e) => {
         if (e) e.preventDefault();
         createConfetti();
-        
+
         // Show modal after a brief burst delay
         setTimeout(() => {
             const modal = document.getElementById('brandModal');
@@ -452,9 +452,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }, 500);
             } else if (window.createConfetti) {
-                 // Fallback if custom CSS confetti is used
-                 window.createConfetti();
-                 setTimeout(() => {
+                // Fallback if custom CSS confetti is used
+                window.createConfetti();
+                setTimeout(() => {
                     const modal = document.getElementById('brandModal');
                     if (modal) {
                         modal.classList.add('active');
@@ -464,4 +464,66 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, 800);
     }
+    // --- Scroll Progress Bar ---
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress-bar';
+    document.body.appendChild(progressBar);
+
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        progressBar.style.width = scrolled + "%";
+    });
+
+    // --- Sidebar Scroll-Spy (Oral Care Page) ---
+    if (window.location.pathname.includes('oral.html')) {
+        const sidebarLinks = document.querySelectorAll('.sidebar ul li a');
+        const sections = document.querySelectorAll('section[id]');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -70% 0px',
+            threshold: 0
+        };
+
+        const observerCallback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    sidebarLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        };
+
+        const spyObserver = new IntersectionObserver(observerCallback, observerOptions);
+        sections.forEach(section => spyObserver.observe(section));
+    }
+
+    // --- Tilt Interaction for Content Images ---
+    const contentImages = document.querySelectorAll('.content-img, .highlight-img, .nutrition-img');
+    contentImages.forEach(img => {
+        img.addEventListener('mousemove', (e) => {
+            const rect = img.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = (y - centerY) / 20;
+            const rotateY = (centerX - x) / 20;
+
+            img.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+
+        img.addEventListener('mouseleave', () => {
+            img.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        });
+    });
 });
