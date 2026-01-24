@@ -3879,6 +3879,7 @@ textarea.form-control {
     border-radius: 24px;
     backdrop-filter: blur(10px);
 }
+
 /* --- Scroll Progress Bar --- */
 .scroll-progress-bar {
     position: fixed;
@@ -3912,14 +3913,29 @@ textarea.form-control {
 }
 
 @keyframes particleFloat {
-    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-    10% { opacity: 0.2; }
-    90% { opacity: 0.2; }
-    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.2;
+    }
+
+    90% {
+        opacity: 0.2;
+    }
+
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
 }
 
 /* --- Image Motion Refinement --- */
-.content-img, .highlight-img, .nutrition-img {
+.content-img,
+.highlight-img,
+.nutrition-img {
     transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease;
     will-change: transform;
 }
@@ -3933,21 +3949,48 @@ textarea.form-control {
 }
 
 .benefit-card {
-    padding: 2.5rem;
+    padding: 3rem 2rem;
     text-align: center;
-    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(197, 160, 89, 0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
 .benefit-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-15px) scale(1.02);
     border-color: var(--gold);
-    box-shadow: var(--gold-glow);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(197, 160, 89, 0.2);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.benefit-card:hover::before {
+    opacity: 1;
 }
 
 .benefit-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    display: block;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    display: inline-block;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.benefit-card:hover .benefit-icon {
+    transform: scale(1.2) rotate(5deg);
 }
 
 .brand-portfolio-grid {
@@ -3958,21 +4001,45 @@ textarea.form-control {
 }
 
 .brand-item {
-    padding: 2rem;
+    padding: 2.5rem;
     text-align: center;
-    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 20px;
+    border: 1px solid transparent;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(197, 160, 89, 0.3);
+    transform: scale(1.05);
 }
 
 .brand-item img {
-    max-width: 120px;
+    max-width: 140px;
     height: auto;
-    margin-bottom: 1rem;
-    filter: grayscale(1);
-    transition: filter 0.3s ease;
+    margin-bottom: 1.5rem;
+    filter: grayscale(1) brightness(0.8);
+    transition: all 0.5s ease;
 }
 
 .brand-item:hover img {
-    filter: grayscale(0);
+    filter: grayscale(0) brightness(1);
+    transform: scale(1.1);
+}
+
+.brand-item h4 {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+}
+
+.brand-item:hover h4 {
+    color: var(--gold);
 }
 
 .split-layout {
@@ -3981,7 +4048,8 @@ textarea.form-control {
     align-items: flex-start;
 }
 
-.who-can-partner, .our-commitment {
+.who-can-partner,
+.our-commitment {
     flex: 1;
 }
 
@@ -4023,28 +4091,82 @@ textarea.form-control {
 }
 
 .registration-section {
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: 1000px;
+    margin: 4rem auto;
+}
+
+.form-header {
+    margin-bottom: 3rem;
+}
+
+.form-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
 }
 
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
-.full-width {
-    grid-column: span 2;
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 5px;
+}
+
+.partner-form input,
+.partner-form select,
+.partner-form textarea {
+    width: 100%;
+    padding: 1.2rem;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    color: var(--text-main);
+    font-size: 1.05rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.partner-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.partner-form input::placeholder,
+.partner-form textarea::placeholder {
+    color: rgba(26, 11, 46, 0.4);
+}
+
+.partner-form input:focus,
+.partner-form select:focus,
+.partner-form textarea:focus {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: var(--gold);
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.15), inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
 }
 
 .partner-form select {
-    width: 100%;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--glass-border);
-    border-radius: 12px;
-    color: var(--white);
-    outline: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23C5A059' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2em;
+    padding-right: 3rem;
+    cursor: pointer;
 }
 
 .partner-form select option {
@@ -4053,10 +4175,13 @@ textarea.form-control {
 }
 
 @media (max-width: 768px) {
-    .split-layout, .form-grid {
+
+    .split-layout,
+    .form-grid {
         grid-template-columns: 1fr;
         flex-direction: column;
     }
+
     .full-width {
         grid-column: span 1;
     }
