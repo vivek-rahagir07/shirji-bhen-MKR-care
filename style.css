@@ -781,7 +781,7 @@ h3,
     z-index: 3;
     max-width: 650px;
     padding: 0;
-    animation: luxuryFadeIn 2.5s cubic-bezier(0.23, 1, 0.32, 1);
+    animation: luxuryFadeIn 2.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
 .hero-container {
@@ -3006,6 +3006,74 @@ h3,
         opacity: 1;
         transform: translateY(0);
         filter: blur(0);
+    }
+}
+
+.text-elevation-glow {
+    text-shadow: 0 0 30px rgba(197, 160, 89, 0.4), 0 0 60px rgba(197, 160, 89, 0.2);
+}
+
+/* --- Scroll Down Indicator --- */
+.scroll-down-indicator {
+    position: absolute;
+    bottom: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    z-index: 100;
+}
+
+.scroll-text {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: var(--transition);
+}
+
+.scroll-arrow-container {
+    width: 44px;
+    height: 44px;
+    background: #1A0B2E;
+    /* Deep Purple */
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(26, 11, 46, 0.5);
+    transition: var(--transition);
+}
+
+.scroll-down-indicator:hover .scroll-arrow-container {
+    background: #2A1B3E;
+    box-shadow: 0 0 30px rgba(197, 160, 89, 0.3);
+    transform: scale(1.1);
+}
+
+.scroll-arrow {
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid var(--gold);
+    border-right: 2px solid var(--gold);
+    transform: rotate(45deg);
+    margin-top: -5px;
+    animation: arrowBounce 2s infinite ease-in-out;
+}
+
+@keyframes arrowBounce {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translateY(8px) rotate(45deg);
+        opacity: 1;
     }
 }
 
