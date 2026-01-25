@@ -97,7 +97,7 @@ h3,
 }
 
 .logo img {
-    height: 40px;
+    height: 50px;
     width: auto;
     object-fit: contain;
 }
@@ -105,13 +105,12 @@ h3,
 .logo span {
     font-size: 1.8rem;
     font-weight: 700;
-    background: var(--gold-gradient);
+    background: linear-gradient(135deg, #8B6B23 0%, #B8860B 50%, #8B6B23 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     letter-spacing: -0.5px;
     font-family: 'Playfair Display', serif;
-    text-transform: uppercase;
 }
 
 .logo:hover {
@@ -2850,7 +2849,7 @@ h3,
     position: relative;
     width: 100%;
     max-width: 1200px;
-    height: 500px;
+    height: 600px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -2878,14 +2877,14 @@ h3,
     padding: 3rem;
     box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
     transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    position: relative;
     border: 1px solid rgba(255, 255, 255, 0.1);
     cursor: pointer;
     user-select: none;
     opacity: 0;
     visibility: hidden;
-    transform: translateX(-50%) translateZ(-400px) rotateY(0deg);
     left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) translateZ(-400px) rotateY(0deg);
 }
 
 @media (max-width: 768px) {
@@ -2900,7 +2899,7 @@ h3,
 .carousel-3d-item.active {
     opacity: 1;
     visibility: visible;
-    transform: translateX(-50%) translateZ(0) rotateY(0deg);
+    transform: translate(-50%, -50%) translateZ(0) rotateY(0deg);
     z-index: 10;
     box-shadow: 0 20px 50px rgba(93, 31, 110, 0.25);
     border: 2px solid var(--primary);
@@ -2909,14 +2908,14 @@ h3,
 .carousel-3d-item.prev {
     opacity: 0.7;
     visibility: visible;
-    transform: translateX(-110%) translateZ(-200px) rotateY(25deg);
+    transform: translate(-120%, -50%) translateZ(-300px) rotateY(35deg);
     z-index: 5;
 }
 
 .carousel-3d-item.next {
     opacity: 0.7;
     visibility: visible;
-    transform: translateX(10%) translateZ(-200px) rotateY(-25deg);
+    transform: translate(20%, -50%) translateZ(-300px) rotateY(-35deg);
     z-index: 5;
 }
 
@@ -2990,11 +2989,11 @@ h3,
     }
 
     .carousel-3d-item.prev {
-        transform: translateX(-105%) translateZ(-250px) rotateY(20deg);
+        transform: translate(-105%, -50%) translateZ(-250px) rotateY(20deg);
     }
 
     .carousel-3d-item.next {
-        transform: translateX(5%) translateZ(-250px) rotateY(-20deg);
+        transform: translate(5%, -50%) translateZ(-250px) rotateY(-20deg);
     }
 }
 
