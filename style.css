@@ -3594,6 +3594,7 @@ h3 {
 }
 
 .timeline-glow-line {
+    display: none;
     position: absolute;
     left: 50%;
     top: 0;
