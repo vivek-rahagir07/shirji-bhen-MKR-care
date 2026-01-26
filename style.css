@@ -42,8 +42,12 @@
 html,
 body {
     max-width: 100vw;
+    width: 100%;
     overflow-x: hidden;
     position: relative;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    /* Prevent accidental horizontal pans */
 }
 
 body {
@@ -986,14 +990,13 @@ h3 {
 }
 
 @media (max-width: 768px) {
+    .navbar {
+        padding: 0.8rem 1.5rem;
+    }
+
     .hero {
-        padding: 120px 5% 60px;
-        height: auto;
-        min-height: 100vh;
+        padding: 100px 1.5rem 50px;
         text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
     }
 
     .hero-container {
@@ -1380,8 +1383,9 @@ h3 {
     }
 
     .fan-item {
-        width: 180px;
-        padding: 10px;
+        width: 120px;
+        height: 180px;
+        border-radius: 12px;
         border-width: 4px;
     }
 
@@ -1975,9 +1979,9 @@ h3 {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    /* Critical for mobile stacking */
-    gap: 40px;
+    gap: 30px;
     padding-bottom: 40px;
+    overflow: hidden;
 }
 
 .footer-brand,
@@ -3197,18 +3201,19 @@ h3 {
 }
 
 .carousel-nav-btn {
-    width: 60px;
-    height: 60px;
+    width: clamp(40px, 12vw, 60px);
+    height: clamp(40px, 12vw, 60px);
     border-radius: 50%;
     border: 2px solid var(--bg-light);
     background: var(--white);
     color: var(--primary);
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 4vw, 1.5rem);
     transition: var(--transition);
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 20;
 }
 
 .carousel-nav-btn:hover {
@@ -3220,16 +3225,20 @@ h3 {
 
 @media (max-width: 768px) {
     .carousel-3d-item {
-        width: 300px;
-        height: 380px;
+        width: 85vw;
+        /* Use percentage of viewport width */
+        max-width: 320px;
+        height: min(450px, 60vh);
     }
 
     .carousel-3d-item.prev {
-        transform: translate(-105%, -50%) translateZ(-250px) rotateY(20deg);
+        transform: translate(-100%, -50%) translateZ(-200px) rotateY(15deg);
+        opacity: 0.4;
     }
 
     .carousel-3d-item.next {
-        transform: translate(5%, -50%) translateZ(-250px) rotateY(-20deg);
+        transform: translate(0%, -50%) translateZ(-200px) rotateY(-15deg);
+        opacity: 0.4;
     }
 }
 
