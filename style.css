@@ -3151,6 +3151,39 @@ h3,
 }
 
 /* --- Category Filter & Shuffle Animation --- */
+.filter-luxury-bar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    border: 1px solid var(--glass-border);
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: visible;
+}
+
+.filter-aura-slider {
+    position: absolute;
+    height: calc(100% - 10px);
+    background: var(--gold-gradient);
+    border-radius: 40px;
+    z-index: 0;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    opacity: 0.2;
+    pointer-events: none;
+    top: 5px;
+    left: 0;
+    width: 0;
+}
+
 .carousel-filter-tabs {
     display: flex;
     justify-content: center;
@@ -3434,7 +3467,39 @@ h3,
     background-color: var(--bg-light);
 }
 
+.glow-timeline-wrapper {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.timeline-glow-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: rgba(197, 160, 89, 0.1);
+    transform: translateX(-50%);
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.timeline-glow-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--scroll-percent, 0%);
+    background: var(--gold-gradient);
+    box-shadow: 0 0 20px var(--gold);
+    border-radius: 4px;
+    transition: height 0.1s ease-out;
+}
+
 .milestone-grid {
+    position: relative;
+    z-index: 2;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
@@ -3478,6 +3543,12 @@ h3,
 }
 
 /* Front Face - Elegant White & Dark Text */
+.milestone-item.active .milestone-card-front {
+    border-color: var(--gold);
+    box-shadow: 0 0 30px rgba(197, 160, 89, 0.4);
+    transform: translateY(-10px);
+}
+
 .milestone-card-front {
     background: var(--white);
     border: 1px solid rgba(0, 0, 0, 0.08);

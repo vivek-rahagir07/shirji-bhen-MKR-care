@@ -584,4 +584,83 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Glow-Path Timeline Scroll Logic ---
+    const timelineWrapper = document.querySelector('.glow-timeline-wrapper');
+    const timelineLine = document.querySelector('.timeline-glow-line');
+    const milestoneItems = document.querySelectorAll('.milestone-item');
+
+    if (timelineWrapper && timelineLine) {
+        window.addEventListener('scroll', () => {
+            const rect = timelineWrapper.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            // Calculate how much of the timeline is scrolled into view
+            let scrollPercent = 0;
+            if (rect.top < windowHeight) {
+                const totalHeight = rect.height;
+                const distanceScrolled = windowHeight - rect.top;
+                scrollPercent = Math.min(100, Math.max(0, (distanceScrolled / totalHeight) * 100));
+            }
+            timelineWrapper.style.setProperty('--scroll-percent', `${scrollPercent}%`);
+
+            // Active milestone pulsing
+            milestoneItems.forEach(item => {
+                const itemRect = item.getBoundingClientRect();
+                if (itemRect.top < windowHeight * 0.7 && itemRect.bottom > windowHeight * 0.3) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        });
+    }
+
+    // --- Liquid Product Archive Filtering ---
+    window.filterElite = (category, event) => {
+        const grid = document.getElementById('elite-product-list');
+        if (!grid) return;
+
+        const cards = grid.querySelectorAll('.elite-product-card');
+        const buttons = document.querySelectorAll('.filter-luxury-btn');
+        const slider = document.querySelector('.filter-aura-slider');
+
+        // Move the slider
+        if (event && slider) {
+            const btn = event.currentTarget;
+            slider.style.width = `${btn.offsetWidth}px`;
+            slider.style.left = `${btn.offsetLeft}px`;
+        }
+
+        // Update active button
+        buttons.forEach(btn => btn.classList.remove('active'));
+        if (event) event.currentTarget.classList.add('active');
+
+        // Liquid Transition
+        cards.forEach((card) => {
+            card.classList.add('liquid-exit');
+
+            setTimeout(() => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.classList.remove('liquid-exit');
+                    }, 50);
+                } else {
+                    card.style.display = 'none';
+                }
+            }, 400);
+        });
+    };
+
+    // Initialize Filter Slider position on Products page
+    if (window.location.pathname.includes('products.html')) {
+        setTimeout(() => {
+            const activeBtn = document.querySelector('.filter-luxury-btn.active');
+            const slider = document.querySelector('.filter-aura-slider');
+            if (activeBtn && slider) {
+                slider.style.width = `${activeBtn.offsetWidth}px`;
+                slider.style.left = `${activeBtn.offsetLeft}px`;
+            }
+        }, 500);
+    }
 });
