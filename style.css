@@ -6031,6 +6031,15 @@ textarea.form-control {
 .product-main-visual {
     position: relative;
     z-index: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.floating-img {
+    max-width: 320px;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
 }
 
 .visual-badge {
