@@ -304,22 +304,28 @@ document.addEventListener('DOMContentLoaded', () => {
         if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetAutoPlay(); });
         if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetAutoPlay(); });
 
-        function resetAutoPlay() {
+        // Touch Swipe Support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        track.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
             clearInterval(autoPlay);
-            autoPlay = setInterval(nextSlide, 3500);
-        }
+        }, { passive: true });
 
-        track.addEventListener('mouseenter', () => clearInterval(autoPlay));
-        track.addEventListener('mouseleave', () => resetAutoPlay());
+        track.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+            resetAutoPlay();
+        }, { passive: true });
 
-        // Page-specific initialization
-        const pageCategory = document.body.getAttribute('data-page-category');
-        if (pageCategory) {
-            // Wait for items to be ready
-            setTimeout(() => {
-                const targetTab = Array.from(filterTabs).find(t => t.getAttribute('data-filter') === pageCategory);
-                if (targetTab) targetTab.click();
-            }, 100);
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            if (touchEndX < touchStartX - swipeThreshold) {
+                nextSlide();
+            } else if (touchEndX > touchStartX + swipeThreshold) {
+                prevSlide();
+            }
         }
 
         resetAutoPlay();
