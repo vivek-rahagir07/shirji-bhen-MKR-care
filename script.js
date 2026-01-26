@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     // --- Scroll Reveal Animation ---
     const revealElements = document.querySelectorAll('.reveal');
 
@@ -129,21 +130,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Magnetic Button Effect ---
-    const magneticBtns = document.querySelectorAll('.btn, .buy-btn, .filter-btn, .carousel-nav-btn, .filter-tab');
-    magneticBtns.forEach(btn => {
-        btn.addEventListener('mousemove', (e) => {
-            const rect = btn.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
+    // --- Magnetic Button Effect (Disabled on Touch) ---
+    if (!isTouchDevice) {
+        const magneticBtns = document.querySelectorAll('.btn, .buy-btn, .filter-btn, .carousel-nav-btn, .filter-tab');
+        magneticBtns.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
 
-            btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-        });
+                btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+            });
 
-        btn.addEventListener('mouseleave', () => {
-            btn.style.transform = 'translate(0, 0)';
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0, 0)';
+            });
         });
-    });
+    }
 
     // --- Counter Animation for About Page ---
     const counters = document.querySelectorAll('.stat-number, .stat-vibe .number');
@@ -180,9 +183,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     counters.forEach(counter => counterObserver.observe(counter));
 
-    // --- Elite Mouse Parallax for About Hero ---
+    // --- Elite Mouse Parallax for About Hero (Disabled on Touch) ---
     const aboutHero = document.querySelector('.about-hero');
-    if (aboutHero) {
+    if (aboutHero && !isTouchDevice) {
         const heroImg = aboutHero.querySelector('.hero-image');
         aboutHero.addEventListener('mousemove', (e) => {
             const xPos = (e.clientX / window.innerWidth - 0.5) * 40;
@@ -503,27 +506,29 @@ document.addEventListener('DOMContentLoaded', () => {
         sections.forEach(section => spyObserver.observe(section));
     }
 
-    // --- Tilt Interaction for Content Images ---
-    const contentImages = document.querySelectorAll('.content-img, .highlight-img, .nutrition-img');
-    contentImages.forEach(img => {
-        img.addEventListener('mousemove', (e) => {
-            const rect = img.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+    // --- Tilt Interaction for Content Images (Disabled on Touch) ---
+    if (!isTouchDevice) {
+        const contentImages = document.querySelectorAll('.content-img, .highlight-img, .nutrition-img');
+        contentImages.forEach(img => {
+            img.addEventListener('mousemove', (e) => {
+                const rect = img.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
 
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
 
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (centerX - x) / 20;
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
 
-            img.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                img.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+
+            img.addEventListener('mouseleave', () => {
+                img.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            });
         });
-
-        img.addEventListener('mouseleave', () => {
-            img.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-        });
-    });
+    }
     // --- Owner Modal & Continuous Confetti Logic ---
     let confettiInterval;
 
