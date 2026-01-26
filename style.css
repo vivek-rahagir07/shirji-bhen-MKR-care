@@ -5943,10 +5943,39 @@ textarea.form-control {
     }
 }
 
-/* Blog & Guide Page Specific Styles */
 .blog-page .hero {
-    height: 60vh;
-    min-height: 400px;
+    height: 100vh;
+    min-height: 500px;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-page .aura-container,
+.blog-page .hero-bg.atmospheric {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.blog-page .hero-bg.atmospheric {
+    opacity: 0.8;
+}
+
+.blog-page .hero-overlay {
+    background: radial-gradient(circle at center, transparent 0%, rgba(20, 8, 41, 0.8) 100%);
+}
+
+.blog-page .hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.blog-page .gold-text {
+    color: var(--gold) !important;
 }
 
 .usage-steps-grid {
