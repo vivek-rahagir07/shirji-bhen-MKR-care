@@ -2596,70 +2596,29 @@ h3 {
     border-radius: 30px;
 }
 
-.footer-column {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: var(--transition-mid);
-}
-
-.footer-column.revealed {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-@media (max-width: 992px) {
-    .distributor-content {
-        flex-direction: column;
-        padding: 2rem;
-        text-align: center;
-    }
-}
-
-/* --- Main Footer (Cinematic Overhaul) --- */
-.main-footer {
-    background-color: var(--bg-dark-true, #0A0A0A);
-    padding: 100px 0 0 0;
-    color: var(--white);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    position: relative;
-    z-index: 10;
-    overflow: hidden;
-}
-
-.main-footer::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, rgba(197, 160, 89, 0.08) 0%, transparent 70%);
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-}
-
-.footer-grid {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 3rem;
-    padding-bottom: 5rem;
-}
-
+.footer-column,
 .footer-brand,
 .footer-info,
 .footer-contact,
 .footer-links {
-    flex: 1;
-    min-width: 240px;
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
     transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.footer-column.revealed {
+.footer-column.revealed,
+.footer-brand.revealed,
+.footer-info.revealed,
+.footer-contact.revealed,
+.footer-links.revealed {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Fallback for visibility on index.html if intersection observer is not targeting specific columns */
+.main-footer .footer-column {
+    opacity: 1 !important;
+    transform: none !important;
 }
 
 .footer-brand .logo {
@@ -3084,6 +3043,13 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: center;
+    perspective: 1000px;
+}
+
+@media (max-width: 768px) {
+    .carousel-3d-container {
+        height: 450px;
+    }
 }
 
 .carousel-3d-track {
@@ -3119,8 +3085,8 @@ h3 {
 
 @media (max-width: 768px) {
     .carousel-3d-item {
-        width: 260px;
-        height: 380px;
+        width: 280px;
+        height: 400px;
         padding: 1.5rem;
     }
 }
