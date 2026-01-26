@@ -5972,6 +5972,113 @@ textarea.form-control {
 .blog-page .hero-content {
     position: relative;
     z-index: 2;
+    flex: 1;
+}
+
+/* Hanging Bulb System */
+.hanging-bulb-system {
+    position: absolute;
+    right: 10%;
+    top: -20px;
+    /* Tie it to the very top */
+    height: 60%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform-origin: top center;
+    animation: bulbSwing 6s infinite ease-in-out;
+}
+
+.bulb-wire {
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--gold-deep), var(--gold));
+    box-shadow: 0 0 10px rgba(197, 160, 89, 0.3);
+}
+
+.bulb-head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: -10px;
+}
+
+.bulb-icon {
+    font-size: 7rem;
+    /* Bigger as requested */
+    z-index: 2;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
+    animation: bulbPulse 4s infinite ease-in-out;
+    cursor: default;
+}
+
+.bulb-glow {
+    position: absolute;
+    width: 250px;
+    /* Amazingly big glow */
+    height: 250px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 1;
+    animation: glowPulse 4s infinite ease-in-out;
+}
+
+@keyframes bulbSwing {
+
+    0%,
+    100% {
+        transform: rotate(-3deg);
+    }
+
+    50% {
+        transform: rotate(3deg);
+    }
+}
+
+@keyframes bulbPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
+    }
+
+    50% {
+        transform: scale(1.15);
+        filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.9));
+    }
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: scale(1.6);
+        opacity: 0.8;
+    }
+}
+
+@media (max-width: 992px) {
+    .hanging-bulb-system {
+        right: 5%;
+        height: 40%;
+    }
+
+    .bulb-icon {
+        font-size: 5rem;
+    }
+
+    .bulb-glow {
+        width: 150px;
+        height: 150px;
+    }
 }
 
 .blog-page .gold-text {
