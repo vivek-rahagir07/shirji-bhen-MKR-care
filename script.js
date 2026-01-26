@@ -67,11 +67,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Dynamic Navbar Effect ---
     const navbar = document.querySelector('.navbar');
+
+    // Create Back to Top Button
+    const backToTopBtn = document.createElement('button');
+    backToTopBtn.innerHTML = '↑';
+    backToTopBtn.className = 'back-to-top';
+    document.body.appendChild(backToTopBtn);
+
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
+        }
+
+        // Show/Hide Back to Top Button
+        if (window.scrollY > 500) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // --- Active Link Highlighting ---
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.navbar .uppertab a, .mobile-nav-links a');
+
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        if (linkPath === currentPath || (currentPath === '' && linkPath === 'index.html')) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
         }
     });
 
@@ -528,5 +562,26 @@ document.addEventListener('DOMContentLoaded', () => {
             clearInterval(confettiInterval);
         }
     };
+
+    // --- Distributor Form Validation ---
+    const partnerForm = document.querySelector('.partner-form');
+    if (partnerForm) {
+        partnerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const submitBtn = partnerForm.querySelector('.submit-btn');
+            const originalText = submitBtn.innerText;
+
+            // Simple validation feedback
+            submitBtn.innerText = 'Sending...';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                alert('Thank you for your interest! Our team will contact you shortly.');
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
+                partnerForm.reset();
+            }, 1500);
+        });
+    }
 
 });

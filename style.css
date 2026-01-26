@@ -151,11 +151,13 @@ h3,
     transition: var(--transition);
 }
 
-.uppertab li a:hover {
+.uppertab li a:hover,
+.uppertab li a.active {
     color: var(--gold-bright) !important;
 }
 
-.uppertab li a:hover::after {
+.uppertab li a:hover::after,
+.uppertab li a.active::after {
     width: 100%;
 }
 
@@ -481,6 +483,45 @@ h3,
     transform: translateY(0);
 }
 
+.mobile-nav-links li a.active {
+    color: var(--gold-bright);
+    font-weight: 700;
+}
+
+/* --- Back To Top Button --- */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--gold-gradient);
+    color: #000;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(197, 160, 89, 0.4);
+}
+
 /* --- Refined Responsive Logic --- */
 @media (max-width: 992px) {
     .navbar {
@@ -493,6 +534,20 @@ h3,
 
     .hamburger {
         display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.8rem 1rem;
+    }
+
+    .logo span {
+        font-size: 1.4rem;
+    }
+
+    .logo img {
+        height: 35px;
     }
 }
 
@@ -4295,6 +4350,12 @@ textarea.form-control {
     margin-top: 4rem;
 }
 
+@media (max-width: 600px) {
+    .benefit-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .benefit-card {
     padding: 3rem 2rem;
     text-align: center;
@@ -4395,14 +4456,22 @@ textarea.form-control {
     align-items: flex-start;
 }
 
+@media (max-width: 992px) {
+    .split-layout {
+        flex-direction: column;
+        gap: 3rem;
+    }
+}
+
 .who-can-partner,
 .our-commitment {
     flex: 1;
+    width: 100%;
 }
 
 .partner-list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
 }
