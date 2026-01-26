@@ -260,12 +260,13 @@ h3 {
 
 .stagger-reveal>* {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px) scale(0.95);
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .stagger-reveal.active>* {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
@@ -6040,6 +6041,24 @@ textarea.form-control {
     width: 100%;
     height: auto;
     filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+    animation: float 6s ease-in-out infinite;
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.floating-img:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
 }
 
 .visual-badge {
@@ -6063,6 +6082,15 @@ textarea.form-control {
 .info-item {
     padding: 35px;
     text-align: center;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    border: 1px solid transparent;
+}
+
+.info-item:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--gold-soft);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .info-item h3 {
