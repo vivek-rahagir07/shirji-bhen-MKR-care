@@ -3074,12 +3074,14 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: center;
-    perspective: 1000px;
+    perspective: 1200px;
+    /* Enhanced perspective */
 }
 
 @media (max-width: 768px) {
     .carousel-3d-container {
-        height: 450px;
+        height: 400px;
+        /* Tighter container for mobile */
     }
 }
 
@@ -3116,9 +3118,17 @@ h3 {
 
 @media (max-width: 768px) {
     .carousel-3d-item {
-        width: 280px;
-        height: 400px;
-        padding: 1.5rem;
+        width: 240px;
+        height: 360px;
+        padding: 1.2rem;
+    }
+
+    .carousel-3d-item img {
+        height: 180px;
+    }
+
+    .carousel-3d-item h3 {
+        font-size: 1.1rem;
     }
 }
 
@@ -5997,6 +6007,17 @@ textarea.form-control {
     justify-content: center;
     border-radius: 50%;
     flex-shrink: 0;
+}
+
+.product-fan-out {
+    position: relative;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1 !important;
+    /* Force visibility in hero */
+    transform: none !important;
 }
 
 .features-visual {
