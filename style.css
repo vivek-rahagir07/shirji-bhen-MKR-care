@@ -5980,21 +5980,27 @@ textarea.form-control {
     position: absolute;
     right: 10%;
     top: -20px;
-    /* Tie it to the very top */
     height: 60%;
     z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: center;
     transform-origin: top center;
-    animation: bulbSwing 6s infinite ease-in-out;
+    animation: bulbSwing 8s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    transition: var(--transition-slow);
+}
+
+.hanging-bulb-system:hover {
+    animation-duration: 4s;
+    filter: brightness(1.2);
 }
 
 .bulb-wire {
     width: 2px;
     height: 100%;
-    background: linear-gradient(to bottom, var(--gold-deep), var(--gold));
-    box-shadow: 0 0 10px rgba(197, 160, 89, 0.3);
+    background: linear-gradient(to bottom, var(--gold-deep) 0%, var(--gold) 80%, var(--gold-bright) 100%);
+    box-shadow: 0 0 15px rgba(197, 160, 89, 0.4);
+    position: relative;
 }
 
 .bulb-head {
@@ -6002,38 +6008,54 @@ textarea.form-control {
     justify-content: center;
     align-items: center;
     position: relative;
-    margin-top: -10px;
+    margin-top: -15px;
+    /* Pull it slightly higher into the wire */
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .bulb-icon {
     font-size: 7rem;
-    /* Bigger as requested */
     z-index: 2;
-    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
-    animation: bulbPulse 4s infinite ease-in-out;
-    cursor: default;
+    filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.6));
+    animation: bulbPulse 5s infinite ease-in-out, bulbFlicker 10s infinite;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    display: inline-block;
+    transform: rotate(180deg);
+    /* Invert the bulb as requested */
+}
+
+.hanging-bulb-system:hover .bulb-icon {
+    transform: rotate(180deg) scale(1.1);
+    /* Maintain inversion while scaling */
+    filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.9));
 }
 
 .bulb-glow {
     position: absolute;
-    width: 250px;
-    /* Amazingly big glow */
-    height: 250px;
-    background: radial-gradient(circle, rgba(255, 215, 0, 0.4) 0%, transparent 70%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.5) 0%, rgba(255, 200, 0, 0.2) 40%, transparent 70%);
     border-radius: 50%;
     z-index: 1;
-    animation: glowPulse 4s infinite ease-in-out;
+    animation: glowPulse 5s infinite ease-in-out;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    top: 50%;
+    /* Center glow on the glass part of the inverted bulb */
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 @keyframes bulbSwing {
 
     0%,
     100% {
-        transform: rotate(-3deg);
+        transform: rotate(-4deg);
     }
 
     50% {
-        transform: rotate(3deg);
+        transform: rotate(4deg);
     }
 }
 
@@ -6041,13 +6063,33 @@ textarea.form-control {
 
     0%,
     100% {
-        transform: scale(1);
-        filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
+        transform: rotate(180deg) scale(1);
+        opacity: 0.9;
     }
 
     50% {
-        transform: scale(1.15);
-        filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.9));
+        transform: rotate(180deg) scale(1.05);
+        opacity: 1;
+    }
+}
+
+@keyframes bulbFlicker {
+
+    0%,
+    18%,
+    22%,
+    25%,
+    53%,
+    57%,
+    100% {
+        opacity: 1;
+    }
+
+    20%,
+    24%,
+    55% {
+        opacity: 0.8;
+        filter: brightness(0.9);
     }
 }
 
@@ -6055,13 +6097,15 @@ textarea.form-control {
 
     0%,
     100% {
-        transform: scale(1);
+        transform: translate(-50%, -50%) scale(1);
         opacity: 0.4;
+        filter: blur(10px);
     }
 
     50% {
-        transform: scale(1.6);
-        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.4);
+        opacity: 0.7;
+        filter: blur(2px);
     }
 }
 
