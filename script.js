@@ -675,3 +675,36 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500);
     }
 });
+
+// Blog Category Filtering
+document.addEventListener('DOMContentLoaded', () => {
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const blogCards = document.querySelectorAll('.blog-card');
+
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update active button
+            categoryBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const category = btn.textContent;
+
+            blogCards.forEach(card => {
+                const tag = card.querySelector('.blog-tag').textContent;
+                if (category === 'All Articles' || tag === category) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 400);
+                }
+            });
+        });
+    });
+});
