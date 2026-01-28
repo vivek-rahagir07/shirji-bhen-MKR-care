@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Preloader Logic ---
+    const preloader = document.querySelector('.preloader');
+    if (preloader) {
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                preloader.classList.add('fade-out');
+            }, 1500); // Premium pause
+        });
+    }
+
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     // --- Scroll Reveal Animation ---
     const revealElements = document.querySelectorAll('.reveal');
