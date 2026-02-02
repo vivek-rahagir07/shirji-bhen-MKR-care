@@ -6410,7 +6410,6 @@ textarea.form-control {
     align-items: center;
     position: relative;
     margin-top: -15px;
-    /* Pull it slightly higher into the wire */
     transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -6423,12 +6422,10 @@ textarea.form-control {
     transition: all 0.4s ease;
     display: inline-block;
     transform: rotate(180deg);
-    /* Invert the bulb as requested */
 }
 
 .hanging-bulb-system:hover .bulb-icon {
     transform: rotate(180deg) scale(1.1);
-    /* Maintain inversion while scaling */
     filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.9));
 }
 
@@ -6443,11 +6440,9 @@ textarea.form-control {
     pointer-events: none;
     mix-blend-mode: screen;
     top: 50%;
-    /* Center glow on the glass part of the inverted bulb */
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0.4;
-    /* Minimal glow to keep background dark */
 }
 
 @keyframes bulbSwing {
