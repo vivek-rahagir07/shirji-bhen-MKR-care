@@ -6309,18 +6309,18 @@ textarea.form-control {
 
 .usage-steps-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 50px;
 }
 
 .usage-step-card {
     position: relative;
-    padding: 40px 30px;
+    padding: 60px 40px;
     text-align: center;
     border: 1px solid rgba(197, 160, 89, 0.1);
     background: rgba(255, 255, 255, 0.02);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border-radius: 20px;
+    border-radius: 24px;
 }
 
 .usage-step-card:hover {
@@ -6516,25 +6516,29 @@ textarea.form-control {
 .blog-categories {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
-    padding: 2rem 5%;
-    background: rgba(2, 0, 5, 0.9);
+    gap: 2rem;
+    padding: 1.5rem 5%;
+    background: rgba(255, 245, 247, 0.85);
+    /* Light Baby Pink Background */
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
     position: sticky;
-    top: 80px;
+    top: 90px;
     z-index: 100;
-    margin-bottom: 3rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin: 4rem auto;
+    max-width: fit-content;
+    border-radius: 50px;
+    border: 1px solid rgba(26, 11, 46, 0.08);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
 }
 
 .category-btn {
-    padding: 0.6rem 1.5rem;
+    padding: 0.8rem 2rem;
     border-radius: 30px;
-    border: 1px solid rgba(197, 160, 89, 0.3);
+    border: 1px solid rgba(26, 11, 46, 0.1);
     background: transparent;
-    color: rgba(255, 255, 255, 0.8);
-    font-weight: 500;
+    color: var(--primary);
+    font-weight: 600;
     cursor: pointer;
     transition: var(--transition);
 }
@@ -6579,17 +6583,22 @@ textarea.form-control {
 }
 
 .featured-content {
-    padding: 3rem;
+    padding: 4rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
+.featured-content p {
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
 .blog-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 2.5rem;
-    margin-top: 3rem;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 4rem;
+    margin-top: 4rem;
 }
 
 .blog-card {
@@ -6637,13 +6646,22 @@ textarea.form-control {
 }
 
 .blog-card-content {
-    padding: 2rem;
+    padding: 2.5rem;
 }
 
 .blog-card-content h3 {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.4;
     color: var(--gold-bright);
+}
+
+.blog-card-content p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+    opacity: 0.8;
 }
 
 .read-more {
