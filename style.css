@@ -6100,7 +6100,8 @@ textarea.form-control {
 }
 
 .blog-page {
-    background: #020005;
+    background: #341C4F;
+    /* Softer, lower-contrast purple */
     color: var(--white);
 }
 
@@ -6119,7 +6120,7 @@ textarea.form-control {
     height: 100%;
     z-index: 0;
     pointer-events: none;
-    background: #020005 !important;
+    background: #341C4F !important;
     animation: none !important;
     opacity: 1 !important;
 }
@@ -6137,7 +6138,7 @@ textarea.form-control {
 }
 
 .blog-page .hero-overlay {
-    background: radial-gradient(circle at center, rgba(10, 2, 25, 0.7) 0%, #020005 100%);
+    background: radial-gradient(circle at center, rgba(82, 58, 114, 0.4) 0%, #341C4F 100%);
     z-index: 2;
 }
 
