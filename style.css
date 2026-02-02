@@ -6564,11 +6564,13 @@ textarea.form-control {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    max-width: 1000px;
+    margin: 0 auto 5rem auto;
 }
 
 .featured-img {
     height: 100%;
-    min-height: 400px;
+    min-height: 350px;
     overflow: hidden;
 }
 
@@ -6584,7 +6586,7 @@ textarea.form-control {
 }
 
 .featured-content {
-    padding: 4rem;
+    padding: 2.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
