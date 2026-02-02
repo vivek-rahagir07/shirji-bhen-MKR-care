@@ -464,6 +464,74 @@ h3 {
     color: var(--primary);
 }
 
+/* Detailed Article Styles */
+.detailed-article {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.article-lead {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: var(--primary);
+    font-weight: 500;
+    border-left: 4px solid var(--gold);
+    padding-left: 30px;
+    margin-bottom: 40px;
+}
+
+.article-main-img {
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    max-height: 500px;
+}
+
+.article-body p {
+    font-size: 1.15rem;
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+.article-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-style: italic;
+    text-align: center;
+    color: var(--gold-deep);
+    padding: 60px 0;
+    position: relative;
+}
+
+.article-quote::before,
+.article-quote::after {
+    content: '"';
+    font-size: 5rem;
+    position: absolute;
+    opacity: 0.2;
+    color: var(--gold);
+}
+
+.article-quote::before {
+    top: 20px;
+    left: 10px;
+}
+
+.article-quote::after {
+    bottom: -20px;
+    right: 10px;
+}
+
+.article-footer {
+    border-top: 1px solid rgba(26, 11, 46, 0.1);
+}
+
+.border-top {
+    border-top: 1px solid rgba(26, 11, 46, 0.1);
+}
+
 .gold-glow {
     box-shadow: var(--gold-glow);
 }
