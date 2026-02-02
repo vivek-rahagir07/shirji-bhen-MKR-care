@@ -532,6 +532,234 @@ h3 {
     border-top: 1px solid rgba(26, 11, 46, 0.1);
 }
 
+/* --- Article Engagement Enhancements --- */
+
+/* Reading Progress Bar */
+.reading-progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    z-index: 2000;
+    background: rgba(255, 245, 247, 0.1);
+}
+
+.reading-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--gold-gradient);
+    box-shadow: 0 0 10px rgba(197, 160, 89, 0.5);
+    transition: width 0.1s ease-out;
+}
+
+/* Typography Enhancements */
+.article-body>p:first-of-type::first-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    float: left;
+    margin-right: 15px;
+    line-height: 0.8;
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.article-section h3 {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.article-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    opacity: 0.6;
+}
+
+/* Metadata Badges */
+.article-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.read-time {
+    font-size: 0.85rem;
+    color: var(--primary);
+    opacity: 0.6;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Cinematic Hover for Article Images */
+.article-main-img {
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    max-height: 600px;
+    transition: var(--transition-slow);
+}
+
+.article-main-img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 40px 80px rgba(197, 160, 89, 0.15);
+}
+
+/* Share Bar */
+.article-share-bar {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.share-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(26, 11, 46, 0.1);
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--primary);
+}
+
+.share-btn:hover {
+    background: var(--gold);
+    color: white;
+    border-color: var(--gold);
+    transform: translateY(-3px);
+}
+
+/* Next Article Footer */
+.next-article-teaser {
+    background: rgba(197, 160, 89, 0.05);
+    border-radius: 30px;
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 80px;
+    border: 1px dashed rgba(197, 160, 89, 0.3);
+}
+
+/* Study-Friendly Features */
+.key-takeaways {
+    background: linear-gradient(135deg, #fff 0%, rgba(197, 160, 89, 0.05) 100%);
+    border-left: 5px solid var(--gold);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin: 3rem 0;
+    box-shadow: 0 10px 30px rgba(197, 160, 89, 0.05);
+}
+
+.key-takeaways h4 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--gold);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+}
+
+.key-takeaways ul {
+    list-style: none;
+    padding: 0;
+}
+
+.key-takeaways li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.key-takeaways li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+}
+
+.science-callout {
+    background: var(--primary);
+    color: white;
+    padding: 2.5rem;
+    border-radius: 30px;
+    margin: 3rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.science-callout::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(197, 160, 89, 0.2) 0%, transparent 70%);
+}
+
+.science-callout h4 {
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+.science-callout p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.article-quote {
+    padding: 3rem;
+    margin: 4rem 0;
+    background: rgba(255, 245, 247, 0.5);
+    border-radius: 0 50px 0 50px;
+    position: relative;
+    text-align: center;
+}
+
+.article-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-style: italic;
+    color: var(--primary);
+    line-height: 1.4;
+    position: relative;
+    z-index: 1;
+}
+
+.article-quote::after {
+    content: '"';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 8rem;
+    color: rgba(197, 160, 89, 0.1);
+    font-family: serif;
+}
+
+@media (max-width: 768px) {
+    .article-quote p {
+        font-size: 1.4rem;
+    }
+}
+
 .gold-glow {
     box-shadow: var(--gold-glow);
 }

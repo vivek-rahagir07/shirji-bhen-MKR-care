@@ -481,17 +481,46 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { threshold: 0.5 });
         legacyObserver.observe(legacySection);
     }
-    // --- Scroll Progress Bar ---
-    const progressBar = document.createElement('div');
-    progressBar.className = 'scroll-progress-bar';
-    document.body.appendChild(progressBar);
+    // --- Reading Progress & Share Logic (Articles Only) ---
+    const readingProgress = document.querySelector('.reading-progress-bar');
+    if (readingProgress) {
+        window.addEventListener('scroll', () => {
+            const article = document.querySelector('.detailed-article');
+            if (!article) return;
 
-    window.addEventListener('scroll', () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        progressBar.style.width = scrolled + "%";
-    });
+            const rect = article.getBoundingClientRect();
+            const articleHeight = rect.height;
+            const articleTop = rect.top + window.scrollY;
+            const scrollPos = window.scrollY + window.innerHeight;
+
+            let progress = ((scrollPos - articleTop) / articleHeight) * 100;
+            progress = Math.min(100, Math.max(0, progress));
+            readingProgress.style.width = progress + "%";
+        });
+    }
+
+    window.shareArticle = (platform) => {
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent(document.title);
+        let shareUrl = '';
+
+        switch (platform) {
+            case 'twitter':
+                shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+                break;
+            case 'linkedin':
+                shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+                break;
+            case 'copy':
+                navigator.clipboard.writeText(window.location.href);
+                alert('Link copied to clipboard!');
+                return;
+        }
+
+        if (shareUrl) {
+            window.open(shareUrl, '_blank', 'width=600,height=400');
+        }
+    };
 
     // --- Sidebar Scroll-Spy (Oral Care Page) ---
     if (window.location.pathname.includes('oral.html')) {
